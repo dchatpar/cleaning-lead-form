@@ -1,2253 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pristine Clean Vancouver | Professional Cleaning Services Metro Vancouver</title>
-    <meta name="description" content="Metro Vancouver's #1 rated cleaning service. Residential, Commercial, Airbnb Turnover, Post-Construction, Window & Pressure Washing. Call 604-714-2000">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --navy: #0F1923;
-            --gold: #C9A84C;
-            --gold-light: #D4B76A;
-            --white: #FFFFFF;
-            --light: #F8F9FA;
-            --gray: #6B7280;
-            --navy-light: #1A2A3A;
-            --container-padding: 5%;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--navy);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--container-padding);
-        }
-
-        /* ========== HEADER ========== */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s ease;
-        }
-
-        .header.scrolled {
-            background: var(--navy);
-            padding: 12px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-        }
-
-        .logo .gold {
-            color: var(--gold);
-        }
-
-        .logo .white {
-            color: var(--white);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 36px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            font-size: 15px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .header-cta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-phone {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .btn-gold:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--navy);
-            transform: scale(1.05);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10000;
-            padding: 10px;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* ========== MOBILE MENU OVERLAY ========== */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 25, 35, 0.98);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .mobile-menu-overlay a {
-            font-size: 1.5rem;
-            color: white;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            transition: color 0.3s;
-            padding: 12px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-        }
-
-        .mobile-menu-overlay a:hover {
-            color: var(--gold);
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-quote-btn {
-            background: var(--gold) !important;
-            color: var(--navy) !important;
-            padding: 14px 32px !important;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            margin-top: 20px;
-            text-align: center;
-            display: inline-block;
-        }
-
-        .mobile-quote-btn:hover {
-            background: var(--gold-light) !important;
-            transform: scale(1.05);
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, rgba(15, 25, 35, 0.85) 0%, rgba(15, 25, 35, 0.6) 100%),
-                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1s ease forwards;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 6vw, 72px);
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 40px;
-            max-width: 560px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .trust-badge svg {
-            width: 20px;
-            height: 20px;
-            color: var(--gold);
-        }
-
-        .scroll-arrow {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-arrow svg {
-            width: 32px;
-            height: 32px;
-            color: var(--gold);
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-12px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-6px);
-            }
-        }
-
-        /* ========== TRUST STRIP ========== */
-        .trust-strip {
-            background: var(--navy);
-            padding: 80px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-item.visible {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 56px;
-            font-weight: 800;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 12px;
-        }
-
-        .stat-label {
-            color: var(--white);
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        /* ========== SERVICES ========== */
-        .services {
-            background: var(--light);
-            padding: 120px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-title {
-            font-size: clamp(36px, 4vw, 48px);
-            color: var(--navy);
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .service-card {
-            position: relative;
-            height: 400px;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .service-card.visible {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .service-card-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-card-bg {
-            transform: scale(1.1);
-        }
-
-        .service-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(15, 25, 35, 0.9) 100%);
-            transition: background 0.5s ease;
-        }
-
-        .service-card:hover .service-card-overlay {
-            background: linear-gradient(180deg, transparent 0%, rgba(15, 25, 35, 0.7) 100%);
-        }
-
-        .service-card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 32px;
-        }
-
-        .service-card h3 {
-            color: var(--white);
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .service-card p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 15px;
-            margin-bottom: 16px;
-        }
-
-        .service-card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 14px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-card-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== BEFORE & AFTER ========== */
-        .before-after {
-            background: var(--white);
-            padding: 120px 0;
-        }
-
-        .ba-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .ba-slider {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            user-select: none;
-        }
-
-        .ba-images {
-            position: relative;
-            height: 500px;
-        }
-
-        .ba-image {
-            position: absolute;
-            inset: 0;
-        }
-
-        .ba-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .ba-before {
-            clip-path: inset(0 50% 0 0);
-        }
-
-        .ba-after {
-            clip-path: inset(0 0 0 50%);
-        }
-
-        .ba-label {
-            position: absolute;
-            top: 24px;
-            padding: 8px 20px;
-            background: var(--navy);
-            color: var(--white);
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            z-index: 10;
-        }
-
-        .ba-label.before {
-            left: 24px;
-        }
-
-        .ba-label.after {
-            right: 24px;
-        }
-
-        .ba-handle {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: var(--gold);
-            cursor: ew-resize;
-            z-index: 20;
-            transform: translateX(-50%);
-        }
-
-        .ba-handle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56px;
-            height: 56px;
-            background: var(--gold);
-            border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .ba-handle::after {
-            content: '⟷';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--navy);
-            font-size: 20px;
-            font-weight: 700;
-            z-index: 1;
-        }
-
-        /* ========== WHY CHOOSE US ========== */
-        .why-us {
-            background: var(--navy);
-            padding: 120px 0;
-        }
-
-        .why-us .section-title {
-            color: var(--white);
-        }
-
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .why-card {
-            text-align: center;
-            padding: 48px 24px;
-            background: var(--navy-light);
-            border-radius: 16px;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .why-card.visible {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .why-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .why-icon svg {
-            width: 36px;
-            height: 36px;
-            color: var(--navy);
-        }
-
-        .why-card h3 {
-            color: var(--white);
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .why-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 15px;
-        }
-
-        /* ========== TESTIMONIALS ========== */
-        .testimonials {
-            background: var(--light);
-            padding: 120px 0;
-        }
-
-        .testimonials-slider {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .testimonial-card {
-            min-width: 100%;
-            padding: 0 80px;
-        }
-
-        .testimonial-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonial-stars {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 24px;
-        }
-
-        .testimonial-stars svg {
-            width: 24px;
-            height: 24px;
-            color: var(--gold);
-            fill: var(--gold);
-        }
-
-        .testimonial-quote {
-            font-size: 22px;
-            color: var(--navy);
-            line-height: 1.7;
-            margin-bottom: 32px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--navy);
-        }
-
-        .testimonial-location {
-            color: var(--gray);
-            font-size: 15px;
-            margin-top: 4px;
-        }
-
-        .testimonials-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 48px;
-        }
-
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--navy);
-            opacity: 0.2;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 44px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .testimonial-dot::after {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--navy);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-dot.active::after {
-            background: var(--gold);
-            transform: scale(1.2);
-        }
-
-        /* ========== SERVICE AREAS ========== */
-        .areas {
-            background: var(--white);
-            padding: 120px 0;
-        }
-
-        .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-        }
-
-        .area-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px 16px;
-            border: 2px solid #E5E7EB;
-            border-radius: 12px;
-            font-weight: 600;
-            color: var(--navy);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            min-height: 44px;
-        }
-
-        .area-badge:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.2);
-        }
-
-        .area-badge svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* ========== CONTACT ========== */
-        .contact {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 700px;
-        }
-
-        .contact-info {
-            background: var(--navy);
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-info h2 {
-            color: var(--white);
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-
-        .contact-info > p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 48px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            margin-bottom: 48px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            color: var(--white);
-        }
-
-        .contact-item svg {
-            width: 24px;
-            height: 24px;
-            color: var(--gold);
-        }
-
-        .contact-map {
-            height: 200px;
-            background: var(--navy-light);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .contact-map svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-form h2 {
-            font-size: 32px;
-            color: var(--navy);
-            margin-bottom: 32px;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateX(30px);
-        }
-
-        .form-group.visible {
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #E5E7EB;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: var(--white);
-            min-height: 48px;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            background: var(--navy);
-            padding: 64px 0 32px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 16px;
-        }
-
-        .footer-tagline {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 15px;
-            max-width: 280px;
-        }
-
-        .footer-links h4 {
-            color: var(--white);
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 15px;
-            transition: color 0.3s ease;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: var(--gold);
-        }
-
-        .footer-social svg {
-            width: 20px;
-            height: 20px;
-            color: var(--white);
-        }
-
-        .footer-social a:hover svg {
-            color: var(--navy);
-        }
-
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        /* TABLET (max-width: 1024px) */
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 48px;
-            }
-
-            .why-us-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .areas-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .contact {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                padding: 60px 40px;
-            }
-
-            .contact-form {
-                padding: 60px 40px;
-            }
-        }
-
-        /* MOBILE LANDSCAPE / LARGE PHONE (max-width: 768px) */
-        @media (max-width: 768px) {
-            :root {
-                --container-padding: 4%;
-            }
-
-            .hero {
-                min-height: 100svh;
-                padding-top: 80px;
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .hero-buttons .btn {
-                width: 100%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .header-cta {
-                display: none;
-            }
-
-            .trust-badges {
-                flex-direction: column;
-                gap: 12px;
-                align-items: flex-start;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .service-card {
-                height: 160px;
-                display: flex;
-                flex-direction: row;
-            }
-
-            .service-card-bg {
-                width: 40%;
-                height: 100%;
-            }
-
-            .service-card-overlay {
-                width: 60%;
-                background: linear-gradient(90deg, transparent 0%, rgba(15, 25, 35, 0.9) 100%);
-            }
-
-            .service-card:hover .service-card-overlay {
-                background: linear-gradient(90deg, transparent 0%, rgba(15, 25, 35, 0.7) 100%);
-            }
-
-            .service-card-content {
-                width: 60%;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .service-card h3 {
-                font-size: 18px;
-            }
-
-            .service-card p {
-                font-size: 13px;
-                margin-bottom: 8px;
-            }
-
-            .service-card-link {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .trust-strip {
-                padding: 60px 0;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .stat-label {
-                font-size: 14px;
-            }
-
-            .why-us-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .why-card {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                text-align: left;
-                padding: 24px;
-                gap: 20px;
-            }
-
-            .why-icon {
-                width: 60px;
-                height: 60px;
-                margin: 0;
-                flex-shrink: 0;
-            }
-
-            .why-icon svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .why-card h3 {
-                font-size: 18px;
-                margin-bottom: 6px;
-            }
-
-            .why-card p {
-                font-size: 14px;
-            }
-
-            .areas-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .area-badge {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            .area-badge svg {
-                width: 16px;
-                height: 16px;
-            }
-
-            .ba-images {
-                height: 350px;
-            }
-
-            .ba-handle::before {
-                width: 44px;
-                height: 44px;
-            }
-
-            .testimonial-card {
-                padding: 0 20px;
-            }
-
-            .testimonial-quote {
-                font-size: 18px;
-            }
-
-            .contact {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                padding: 40px 24px;
-            }
-
-            .contact-info h2 {
-                font-size: 28px;
-            }
-
-            .contact-form {
-                padding: 40px 24px;
-            }
-
-            .contact-map {
-                display: none;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .footer-brand {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-tagline {
-                max-width: 100%;
-            }
-
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-links ul {
-                align-items: center;
-            }
-
-            .footer-social {
-                justify-content: center;
-            }
-
-            .footer-social a {
-                width: 44px;
-                height: 44px;
-            }
-
-            .services,
-            .before-after,
-            .why-us,
-            .testimonials,
-            .areas {
-                padding: 60px 0;
-            }
-
-            .section-header {
-                margin-bottom: 40px;
-            }
-
-            .section-title {
-                font-size: clamp(1.5rem, 5vw, 2rem);
-            }
-
-            .section-subtitle {
-                font-size: 16px;
-            }
-        }
-
-        /* MOBILE PORTRAIT (max-width: 480px) */
-        @media (max-width: 480px) {
-            :root {
-                --container-padding: 3%;
-            }
-
-            .container {
-                padding: 0 var(--container-padding);
-            }
-
-            .hero h1 {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .hero-badge {
-                font-size: 11px;
-                padding: 6px 16px;
-            }
-
-            .trust-badges {
-                gap: 10px;
-            }
-
-            .trust-badge {
-                font-size: 13px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .stat-number {
-                font-size: 1.8rem;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .trust-strip {
-                padding: 40px 0;
-            }
-
-            .service-card {
-                height: 140px;
-            }
-
-            .service-card h3 {
-                font-size: 16px;
-            }
-
-            .service-card p {
-                font-size: 12px;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-            .why-card {
-                padding: 20px 16px;
-                gap: 16px;
-            }
-
-            .why-icon {
-                width: 48px;
-                height: 48px;
-            }
-
-            .why-icon svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            .areas-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .area-badge {
-                font-size: 0.85rem;
-                padding: 10px 12px;
-            }
-
-            .ba-images {
-                height: 300px;
-            }
-
-            .ba-label {
-                font-size: 11px;
-                padding: 6px 14px;
-            }
-
-            .ba-label.before {
-                left: 12px;
-            }
-
-            .ba-label.after {
-                right: 12px;
-            }
-
-            .ba-handle::before {
-                width: 44px;
-                height: 44px;
-            }
-
-            .testimonial-card {
-                padding: 0 10px;
-            }
-
-            .testimonial-quote {
-                font-size: 16px;
-                margin-bottom: 20px;
-            }
-
-            .testimonial-author {
-                font-size: 16px;
-            }
-
-            .testimonial-location {
-                font-size: 14px;
-            }
-
-            .testimonials-dots {
-                margin-top: 32px;
-            }
-
-            .contact-panel {
-                padding: 30px 20px;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                padding: 12px;
-                font-size: 16px;
-            }
-
-            .footer-content {
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .footer-links ul {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .footer-social a {
-                width: 44px;
-                height: 44px;
-            }
-
-            .services,
-            .before-after,
-            .why-us,
-            .testimonials,
-            .areas {
-                padding: 40px 0;
-            }
-
-            .section-header {
-                margin-bottom: 32px;
-            }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .service-card {
-                height: 120px;
-            }
-
-            .service-card-content {
-                padding: 12px;
-            }
-
-            .service-card h3 {
-                font-size: 14px;
-            }
-
-            .why-icon {
-                width: 44px;
-                height: 44px;
-            }
-
-            .why-card {
-                padding: 16px 12px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pristine Clean Vancouver | Professional Cleaning Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0F1923;--navy-light:#1a2a3a;--gold:#C9A84C;--gold-light:#e8c96e;
+--white:#ffffff;--gray-100:#f7f8fa;--gray-200:#e8eaed;--gray-600:#5f6368;
+--green:#22c55e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--navy);overflow-x:hidden;background:var(--white)}
+/* TOP BAR */
+.top-bar{background:var(--navy);color:#fff;font-size:13px;padding:8px 0;}
+.top-bar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
+.top-bar a{color:var(--gold);text-decoration:none;font-weight:500;}
+.top-bar a:hover{color:var(--gold-light);}
+.top-bar-left{display:flex;gap:20px;align-items:center;}
+.top-bar-right{display:flex;gap:16px;align-items:center;}
+.top-bar-right a{color:#ccc;transition:color .2s;}
+.top-bar-right a:hover{color:var(--gold);}
+/* HEADER */
+header{background:rgba(15,25,35,.97);backdrop-filter:blur(12px);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(201,168,76,.15);}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:72px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:#fff;line-height:1.1;}
+.logo-text span{color:var(--gold);}
+nav{display:flex;align-items:center;gap:28px;}
+nav a{color:#ccc;text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;position:relative;}
+nav a:hover,nav a.active{color:#fff;}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .3s;}
+nav a:hover::after,nav a.active::after{width:100%;}
+/* DROPdown */
+.dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy);border:1px solid rgba(201,168,76,.2);border-radius:10px;min-width:220px;padding:8px 0;box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu a{display:block;padding:10px 18px;color:#ccc;font-size:13px;transition:all .2s;}
+.dropdown-menu a:hover{background:rgba(201,168,76,.1);color:var(--gold);}
+/* CTA BTN */
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .3s;border:none;cursor:pointer;white-space:nowrap;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);padding:11px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--gold);transition:all .3s;}
+.btn-outline:hover{background:var(--gold);color:var(--navy);}
+.header-cta-btn{display:none;}
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1001;}
+.hamburger span{width:24px;height:2px;background:#fff;transition:all .3s;border-radius:2px;}
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80') center/cover no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,25,35,.92) 0%,rgba(15,25,35,.7) 50%,rgba(15,25,35,.85) 100%);}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:8px 16px;border-radius:50px;color:var(--gold);font-size:13px;font-weight:600;margin-bottom:24px;}
+.hero-badge::before{content:'★';color:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 span{color:var(--gold);}
+.hero-sub{font-size:17px;color:#94a3b8;line-height:1.7;margin-bottom:36px;max-width:520px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.hero-trust{display:flex;gap:32px;flex-wrap:wrap;}
+.hero-trust-item{display:flex;align-items:center;gap:8px;color:#94a3b8;font-size:14px;}
+.hero-trust-item .num{color:#fff;font-weight:700;font-size:22px;}
+.hero-trust-item .num span{color:var(--gold);}
+/* HERO RIGHT FORM */
+.hero-form-box{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:36px;backdrop-filter:blur(12px);}
+.hero-form-box h3{color:#fff;font-size:22px;font-weight:700;margin-bottom:4px;}
+.hero-form-box p{color:#94a3b8;font-size:13px;margin-bottom:24px;}
+.hero-form-box form{display:flex;flex-direction:column;gap:12px;}
+.hero-form-box input,.hero-form-box select{width:100%;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:border-color .3s;}
+/* select arrow fix */
+.hero-form-box select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+.hero-form-box select option{background:var(--navy);color:#fff;}
+.hero-form-box input::placeholder{color:#64748b;}
+.hero-form-box input:focus,.hero-form-box select:focus{border-color:var(--gold);}
+.hero-form-box .form-submit{width:100%;padding:14px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:4px;}
+.hero-form-box .form-submit:hover{background:var(--gold-light);transform:translateY(-1px);}
+/* ANIMATED SECTION BACKGROUNDS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes countUp{from{opacity:0;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
+.anim{opacity:0;}
+.anim.visible{animation:fadeUp .7s ease forwards;}
+.anim.delay1{animation-delay:.1s;}
+.anim.delay2{animation-delay:.2s;}
+.anim.delay3{animation-delay:.3s;}
+.anim.delay4{animation-delay:.4s;}
+/* STATS BAR */
+.stats-bar{background:var(--navy);padding:60px 0;}
+.stats-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center;}
+.stat-item{}
+.stat-num{font-size:52px;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif;display:block;animation:countUp .6s ease forwards;}
+.stat-label{color:#94a3b8;font-size:14px;font-weight:500;margin-top:4px;}
+/* SERVICES */
+.services{padding:100px 0;background:var(--gray-100);}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:6px 14px;border-radius:50px;color:var(--gold);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:800;color:var(--navy);margin-bottom:16px;line-height:1.15;}
+.section-sub{font-size:16px;color:var(--gray-600);max-width:560px;line-height:1.7;}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-header .section-sub{margin:0 auto;}
+.services-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.service-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:all .4s;cursor:pointer;border:1px solid var(--gray-200);}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12);}
+.service-card-img{height:200px;overflow:hidden;position:relative;}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.service-card:hover .service-card-img img{transform:scale(1.08);}
+.service-card-body{padding:24px;}
+.service-icon{width:48px;height:48px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.service-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.service-card p{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:14px;}
+.service-link{color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:gap .3s;}
+.service-link:hover{gap:8px;}
+/* BEFORE/AFTER */
+.before-after{padding:100px 0;background:#fff;}
+.ba-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ba-imgs{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;}
+.ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s;}
+.ba-img-after{opacity:0;}
+.ba-container:hover .ba-img-after{opacity:1;}
+.ba-label{position:absolute;top:20px;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2;}
+.ba-label-before{left:20px;background:rgba(15,25,35,.8);color:#fff;}
+.ba-label-after{right:20px;background:var(--gold);color:var(--navy);}
+.ba-slider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:3;cursor:ew-resize;}
+.ba-slider::after{content:'◄ ►';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);padding:6px 10px;border-radius:50px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 2px 12px rgba(0,0,0,.3);}
+.ba-text .section-title{margin-bottom:20px;}
+.ba-text p{color:var(--gray-600);font-size:15px;line-height:1.8;margin-bottom:28px;}
+.ba-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.ba-features li{display:flex;align-items:center;gap:10px;color:var(--navy);font-size:15px;font-weight:500;}
+.ba-features li::before{content:'✓';width:22px;height:22px;background:rgba(34,197,94,.1);color:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+/* TESTIMONIALS */
+.testimonials{padding:100px 0;background:var(--navy);position:relative;overflow:hidden;}
+.testimonials::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=60') center/cover no-repeat;opacity:.08;}
+.testimonials .section-title{color:#fff;}
+.testimonials .section-sub{color:#94a3b8;}
+.testi-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;position:relative;z-index:1;}
+.testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;transition:all .3s;}
+.testi-card:hover{background:rgba(255,255,255,.08);border-color:rgba(201,168,76,.3);}
+.testi-stars{color:var(--gold);font-size:16px;margin-bottom:16px;letter-spacing:2px;}
+.testi-text{color:#cbd5e1;font-size:15px;line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:16px;}
+.testi-name{color:#fff;font-weight:600;font-size:14px;}
+.testi-role{color:#64748b;font-size:12px;}
+/* AREAS */
+.areas{padding:100px 0;background:var(--gray-100);}
+.areas-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px;}
+.area-card{background:#fff;border-radius:12px;padding:24px;text-align:center;border:1px solid var(--gray-200);transition:all .3s;cursor:pointer;}
+.area-card:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(201,168,76,.12);transform:translateY(-3px);}
+.area-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.area-card p{font-size:12px;color:var(--gray-600);}
+/* CTA STRIP */
+.cta-strip{background:linear-gradient(135deg,var(--gold) 0%,#b8912e 100%);padding:80px 24px;text-align:center;}
+.cta-strip h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:800;color:var(--navy);margin-bottom:16px;}
+.cta-strip p{font-size:17px;color:rgba(15,25,35,.7);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-strip .btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:16px 36px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;transition:all .3s;}
+.cta-strip .btn-dark:hover{background:#1a2a3a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.3);}
+/* GALLERY */
+.gallery{padding:100px 0;background:#fff;}
+.gallery-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px;}
+.gallery-item{aspect-ratio:1;border-radius:12px;overflow:hidden;cursor:pointer;position:relative;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.gallery-item:hover img{transform:scale(1.1);}
+.gallery-item::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(15,25,35,.4);opacity:0;transition:opacity .3s;}
+.gallery-item:hover::after{opacity:1;}
+/* CONTACT */
+.contact{padding:100px 0;background:var(--gray-100);}
+.contact-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--navy);margin-bottom:16px;}
+.contact-info > p{color:var(--gray-600);font-size:15px;line-height:1.7;margin-bottom:36px;}
+.contact-details{display:flex;flex-direction:column;gap:20px;}
+.contact-item{display:flex;align-items:flex-start;gap:14px;}
+.contact-icon{width:44px;height:44px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.contact-item h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px;}
+.contact-item p,.contact-item a{font-size:14px;color:var(--gray-600);text-decoration:none;}
+.contact-item a:hover{color:var(--gold);}
+.contact-form{background:#fff;border-radius:20px;padding:40px;border:1px solid var(--gray-200);box-shadow:0 8px 32px rgba(0,0,0,.06);}
+.contact-form h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:24px;}
+.c-form{display:flex;flex-direction:column;gap:14px;}
+.c-form input,.c-form select,.c-form textarea{width:100%;padding:13px 16px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:10px;color:var(--navy);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .3s;}
+.c-form input:focus,.c-form select:focus,.c-form textarea:focus{border-color:var(--gold);}
+.c-form textarea{resize:vertical;min-height:110px;}
+.c-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235f6368' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+.c-form select option{background:#fff;}
+.c-form .form-submit{width:100%;padding:15px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;}
+.c-form .form-submit:hover{background:var(--gold-light);}
+/* FOOTER */
+footer{background:var(--navy);padding:80px 0 0;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-brand .logo{margin-bottom:16px;}
+.footer-brand p{color:#64748b;font-size:14px;line-height:1.7;margin-bottom:20px;max-width:280px;}
+.footer-socials{display:flex;gap:10px;}
+.footer-socials a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:14px;transition:all .2s;text-decoration:none;}
+.footer-socials a:hover{background:var(--gold);color:var(--navy);}
+.footer-col h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px;}
+.footer-col a{display:block;color:#64748b;font-size:13px;text-decoration:none;padding:5px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{background:rgba(0,0,0,.2);padding:20px 0;text-align:center;}
+.footer-bottom p{color:#475569;font-size:12px;}
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{color:#fff;font-size:20px;font-weight:600;text-decoration:none;padding:10px;transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-content{grid-template-columns:1fr;gap:40px;}
+.hero-form-box{max-width:480px;}
+.ba-inner{grid-template-columns:1fr;gap:40px;}
+.contact-inner{grid-template-columns:1fr;gap:40px;}
+.footer-inner{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+.top-bar{display:none;}
+.header-cta-btn{display:flex;}
+.hamburger{display:flex;}
+nav.main-nav{display:none;}
+.hero{padding-top:72px;min-height:auto;}
+.hero-content{padding:60px 24px 40px;grid-template-columns:1fr;}
+.hero h1{font-size:34px;}
+.hero-trust{gap:20px;}
+.hero-trust-item .num{font-size:18px;}
+.services-grid{grid-template-columns:1fr;}
+.testi-grid{grid-template-columns:1fr;}
+.areas-grid{grid-template-columns:repeat(2,1fr);}
+.gallery-grid{grid-template-columns:repeat(2,1fr);}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:30px;}
+.stat-num{font-size:38px;}
+.footer-inner{grid-template-columns:1fr;gap:32px;}
+.mobile-menu{display:flex;}
+}
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:all .7s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+</style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="#" class="logo">
-                    <span class="gold">Pristine</span><span class="white">Clean</span>
-                </a>
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#why-us">About</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="#areas">Areas</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <div class="header-cta">
-                        <a href="tel:604-714-2000" class="header-phone">604-714-2000</a>
-                        <a href="#contact" class="btn btn-gold">Get Quote</a>
-                    </div>
-                </nav>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
+<!-- TOP BAR -->
+<div class="top-bar">
+<div class="top-bar-inner">
+<div class="top-bar-left">
+<a href="tel:6047142000">📞 604-714-2000</a>
+<span style="color:#475569">|</span>
+<a href="mailto:info@pristinecleanyvr.ca">✉ info@pristinecleanyvr.ca</a>
+</div>
+<div class="top-bar-right">
+<a href="#">Vancouver, BC</a>
+<a href="#">Mon–Sat: 7am – 7pm</a>
+</div>
+</div>
+</div>
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <span class="close-menu" id="closeMenu">×</span>
-        <a href="#hero">Home</a>
-        <a href="#services">Services</a>
-        <a href="#why-us">About</a>
-        <a href="#testimonials">Reviews</a>
-        <a href="#areas">Areas</a>
-        <a href="#contact">Contact</a>
-        <a href="tel:604-714-2000" style="color: var(--gold);">604-714-2000</a>
-        <a href="#contact" class="mobile-quote-btn">Get Free Quote</a>
-    </div>
+<!-- HEADER -->
+<header>
+<div class="header-inner">
+<a href="#" class="logo">
+<div class="logo-icon">✨</div>
+<div class="logo-text">Pristine<span>Clean</span></div>
+</a>
+<nav class="main-nav">
+<a href="#" class="active">Home</a>
+<div class="dropdown">
+<a href="#services">Services ▾</a>
+<div class="dropdown-menu">
+<a href="#">Residential Cleaning</a>
+<a href="#">Commercial Cleaning</a>
+<a href="#">Airbnb & Short-Term Rental</a>
+<a href="#">Post-Construction</a>
+<a href="#">Deep Cleaning</a>
+<a href="#">Move-In / Move-Out</a>
+<a href="#">Window Cleaning</a>
+<a href="#">Pressure Washing</a>
+</div>
+</div>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#testimonials">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;">
+<a href="#contact" class="btn-gold header-cta-btn">Get Free Quote</a>
+<div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+<span></span><span></span><span></span>
+</div>
+</div>
+</div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-badge">Metro Vancouver's #1 Rated</span>
-                <h1>Your Home Deserves a Professional Touch</h1>
-                <p class="hero-subtitle">Trusted by 2,500+ Vancouver families for spotless, reliable cleaning</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-gold">Get Your Free Quote</a>
-                    <a href="#services" class="btn btn-outline">View Our Services</a>
-                </div>
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <span>Licensed & Insured</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <span>5-Star Rated</span>
-                    </div>
-                    <div class="trust-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        <span>Same-Day Available</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </div>
-    </section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+<a href="#" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Home</a>
+<a href="#services" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Services</a>
+<a href="#about" onclick="document.querySelector('.mobile-menu').classList.remove('open')">About</a>
+<a href="#gallery" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Gallery</a>
+<a href="#testimonials" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Reviews</a>
+<a href="#contact" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Contact</a>
+<a href="#contact" class="btn-gold" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Get Free Quote</a>
+</div>
 
-    <!-- TRUST STRIP -->
-    <section class="trust-strip" id="trust">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="2500" data-suffix="+">0</div>
-                    <div class="stat-label">Homes Cleaned</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="98" data-suffix="%">0</div>
-                    <div class="stat-label">Satisfaction Rate</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="8" data-suffix=" Years">0</div>
-                    <div class="stat-label">Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="1" data-suffix="-Day">0</div>
-                    <div class="stat-label">Same-Day Service</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div>
+<div class="hero-badge">Vancouver's Most Trusted Cleaners</div>
+<h1>Experience the <span>Pristine</span> Difference</h1>
+<p class="hero-sub">Professional residential & commercial cleaning in Metro Vancouver. Eco-friendly products, vetted cleaners, 100% satisfaction guaranteed.</p>
+<div class="hero-actions">
+<a href="#contact" class="btn-gold">Get Your Free Quote →</a>
+<a href="#services" class="btn-outline">Our Services</a>
+</div>
+<div class="hero-trust">
+<div class="hero-trust-item"><span class="num">4.9<span>/5</span></span> Google Rating</div>
+<div class="hero-trust-item"><span class="num">2,400<span>+</span></span> Homes Cleaned</div>
+<div class="hero-trust-item"><span class="num">100<span>%</span></span> Satisfaction</div>
+</div>
+</div>
+<div class="hero-form-box">
+<h3>Get Your Free Quote</h3>
+<p>Book in 60 seconds. No commitment.</p>
+<form onsubmit="event.preventDefault(); alert('Thank you! We\'ll call you within 30 minutes.');">
+<select><option value="">Service Type</option><option>Residential Cleaning</option><option>Commercial Cleaning</option><option>Airbnb & Short-Term Rental</option><option>Post-Construction</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Window Cleaning</option><option>Pressure Washing</option></select>
+<select><option value="">Property Type</option><option>Apartment</option><option>House (1-2 Bed)</option><option>House (3-4 Bed)</option><option>House (5+ Bed)</option><option>Office / Commercial</option></select>
+<input type="text" placeholder="Your Name *" required>
+<input type="tel" placeholder="Phone Number *" required>
+<input type="text" placeholder="Postal Code (e.g. V6B 2K8)">
+<button type="submit" class="form-submit">Get My Free Quote →</button>
+</form>
+</div>
+</div>
+</section>
 
-    <!-- SERVICES -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Cleaning Services</h2>
-                <p class="section-subtitle">From deep residential cleaning to specialized commercial and post-construction services</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Residential Cleaning</h3>
-                        <p>Complete home cleaning with eco-friendly products</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Commercial Cleaning</h3>
-                        <p>Professional office and business cleaning solutions</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Airbnb Turnover</h3>
-                        <p>Fast turnovers to keep your guests delighted</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Post-Construction</h3>
-                        <p>Remove debris and polish your new space</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Window Cleaning</h3>
-                        <p>Crystal clear windows inside and out</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80');"></div>
-                    <div class="service-card-overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Pressure Washing</h3>
-                        <p>Restore exterior surfaces to like-new condition</p>
-                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- STATS BAR -->
+<div class="stats-bar">
+<div class="stats-inner">
+<div class="stat-item anim"><span class="stat-num" data-target="2400">0</span><span class="stat-label">Homes Cleaned</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="4.9">0</span><span class="stat-label">Average Rating</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="98">0</span><span class="stat-label">% On-Time Rate</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="15">0</span><span class="stat-label">Years Experience</span></div>
+</div>
+</div>
 
-    <!-- BEFORE & AFTER -->
-    <section class="before-after">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">See the Difference</h2>
-                <p class="section-subtitle">Drag the slider to see the transformation</p>
-            </div>
-            <div class="ba-container">
-                <div class="ba-slider" id="baSlider">
-                    <div class="ba-images">
-                        <div class="ba-image ba-before" id="baBefore">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Before cleaning">
-                            <span class="ba-label before">Before</span>
-                        </div>
-                        <div class="ba-image ba-after" id="baAfter">
-                            <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80" alt="After cleaning">
-                            <span class="ba-label after">After</span>
-                        </div>
-                        <div class="ba-handle" id="baHandle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="section-header">
+<div class="section-tag">What We Do</div>
+<h2 class="section-title">Our Cleaning Services</h2>
+<p class="section-sub">From a quick tidy-up to a full deep clean — we have the right service for every home and business.</p>
+</div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Residential Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🏠</div>
+<h3>Residential Cleaning</h3>
+<p>Regular weekly, bi-weekly or monthly cleaning. Our vetted pros leave your home spotless every time.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🏢</div>
+<h3>Commercial Cleaning</h3>
+<p>Offices, retail spaces, warehouses. We work around your schedule to keep your business looking professional.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Airbnb Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🔑</div>
+<h3>Airbnb & Short-Term Rentals</h3>
+<p>Turnover cleaning that gets your listing 5-star reviews. Fast turnaround between guests.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Post-Construction"></div>
+<div class="service-card-body">
+<div class="service-icon">🔨</div>
+<h3>Post-Construction</h3>
+<p>Heavy-duty cleanup after renovations. Dust, debris, paint — we handle it all and make it move-in ready.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80" alt="Deep Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">✨</div>
+<h3>Deep Cleaning</h3>
+<p>A thorough top-to-bottom clean. Perfect for seasonal refreshes or before/after events.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Move In Out"></div>
+<div class="service-card-body">
+<div class="service-icon">📦</div>
+<h3>Move-In / Move-Out</h3>
+<p>Make your old place shine or walk into a fresh new home. We ensure you get your full deposit back.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="why-us" id="why-us">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Choose Pristine Clean</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Experience the difference of professional cleaning</p>
-            </div>
-            <div class="why-us-grid">
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <div>
-                        <h3>Fully Insured</h3>
-                        <p>Complete peace of mind with $2M liability coverage for every service</p>
-                    </div>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <div>
-                        <h3>5-Star Team</h3>
-                        <p>Background-checked professionals trained to exceed expectations</p>
-                    </div>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <div>
-                        <h3>Flexible Hours</h3>
-                        <p>Book appointments Monday through Saturday, 8am to 6pm</p>
-                    </div>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7.35 16.76l1.27 1.27A10 10 0 0 0 12 22a10 10 0 0 0 6.08-1.97l1.27-1.27A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <div>
-                        <h3>Eco-Friendly</h3>
-                        <p>Safe, non-toxic products that protect your family and pets</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- BEFORE/AFTER -->
+<section class="before-after" id="about">
+<div class="ba-inner">
+<div class="ba-imgs reveal">
+<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Before" style="width:100%;height:100%;object-fit:cover;border-radius:20px;filter:brightness(.7) saturate(.6);" class="ba-before">
+<img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80" alt="After" style="width:100%;height:100%;object-fit:cover;border-radius:20px;position:absolute;inset:0;opacity:0;transition:opacity .8s;" class="ba-after">
+<div class="ba-label ba-label-before">Before</div>
+<div class="ba-label ba-label-after">After</div>
+</div>
+<div class="ba-text reveal">
+<div class="section-tag">The Transformation</div>
+<h2 class="section-title">See the Difference We Make</h2>
+<p>From cluttered to crystal clear — our professional team transforms any space. We use premium eco-friendly products and proven techniques to deliver results that exceed expectations.</p>
+<ul class="ba-features">
+<li>Certified, background-checked cleaners</li>
+<li>Eco-friendly & pet-safe products</li>
+<li>100% satisfaction guarantee</li>
+<li>Fully insured & bonded</li>
+<li>Same-day availability</li>
+</ul>
+<a href="#contact" class="btn-gold">Book a Clean Today →</a>
+</div>
+</div>
+</section>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">Join thousands of satisfied customers across Metro Vancouver</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonials-track" id="testimonialsTrack">
-                    <div class="testimonial-card">
-                        <div class="testimonial-inner">
-                            <div class="testimonial-stars">
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            </div>
-                            <p class="testimonial-quote">"Pristine Clean transformed our home! The team was punctual, thorough, and left everything sparkling. We've never seen our kitchen shine like this before."</p>
-                            <div class="testimonial-author">Sarah M.</div>
-                            <div class="testimonial-location">Kitsilano, Vancouver</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-inner">
-                            <div class="testimonial-stars">
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            </div>
-                            <p class="testimonial-quote">"We use them weekly for our office. Always professional, never late. Highly recommend for any business looking for reliable commercial cleaning."</p>
-                            <div class="testimonial-author">James T.</div>
-                            <div class="testimonial-location">Burnaby</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-inner">
-                            <div class="testimonial-stars">
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            </div>
-                            <p class="testimonial-quote">"Best Airbnb cleaning service in Vancouver. They turn over our units same-day. Perfect results every time. My guests always comment on how clean the place is!"</p>
-                            <div class="testimonial-author">Priya R.</div>
-                            <div class="testimonial-location">Surrey</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonials-dots">
-                <div class="testimonial-dot active" data-index="0"></div>
-                <div class="testimonial-dot" data-index="1"></div>
-                <div class="testimonial-dot" data-index="2"></div>
-            </div>
-        </div>
-    </section>
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<div class="section-header">
+<div class="section-tag" style="background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.4);color:var(--gold);">Reviews</div>
+<h2 class="section-title">What Our Clients Say</h2>
+<p class="section-sub">Don't just take our word for it — here's what Vancouver families are saying.</p>
+</div>
+<div class="testi-grid">
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"Pristine Clean transformed our townhouse before move-in. The post-construction cleanup was impeccable — every surface sparkled. Best decision we made!"</p>
+<div class="testi-author"><div class="testi-avatar">SK</div><div><div class="testi-name">Sarah K.</div><div class="testi-role">Vancouver, BC · 5 days ago</div></div></div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"We use Pristine for our Airbnb turnover every week. Flawless every time — our guests consistently rate us 5 stars because of the clean. Highly recommend!"</p>
+<div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Mike R.</div><div class="testi-role">Burnaby, BC · 2 weeks ago</div></div></div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"Called them for a deep clean before our daughter's birthday party. They came the same day and the place looked amazing. Professional, friendly, and affordable."</p>
+<div class="testi-author"><div class="testi-avatar">JL</div><div><div class="testi-name">Jennifer L.</div><div class="testi-role">Surrey, BC · 1 week ago</div></div></div>
+</div>
+</div>
+</section>
 
-    <!-- SERVICE AREAS -->
-    <section class="areas" id="areas">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Areas We Serve</h2>
-                <p class="section-subtitle">Professional cleaning throughout Metro Vancouver</p>
-            </div>
-            <div class="areas-grid">
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Vancouver
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Burnaby
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Surrey
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Coquitlam
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Richmond
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    North Vancouver
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    West Vancouver
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    New Westminster
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Delta
-                </div>
-                <div class="area-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Langley
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- AREAS -->
+<section class="areas" id="areas">
+<div class="section-header">
+<div class="section-tag">Service Areas</div>
+<h2 class="section-title">Proudly Serving Metro Vancouver</h2>
+<p class="section-sub">Fast, reliable cleaning across the entire Lower Mainland.</p>
+</div>
+<div class="areas-grid">
+<div class="area-card reveal"><h4>Vancouver</h4><p>Downtown, West End, Kitsilano</p></div>
+<div class="area-card reveal"><h4>Burnaby</h4><p>Metrotown, Metchosin</p></div>
+<div class="area-card reveal"><h4>Surrey</h4><p>Fleetwood, Guildford, Cloverdale</p></div>
+<div class="area-card reveal"><h4>Richmond</h4><p>Steveston, Brighouse</p></div>
+<div class="area-card reveal"><h4>North Vancouver</h4><p>Deep Cove, Lynn Valley</p></div>
+<div class="area-card reveal"><h4>Coquitlam</h4><p>Port Coquitlam, Port Moody</p></div>
+<div class="area-card reveal"><h4>Delta & Ladner</h4><p>Tsawwassen, Ladner</p></div>
+<div class="area-card reveal"><h4>Langley</h4><p>Walnut Grove, Fort Langley</p></div>
+</div>
+</section>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-        <div class="contact-info">
-            <h2>Get in Touch</h2>
-            <p>Ready for a cleaner home or business? Contact us today for a free quote.</p>
-            <div class="contact-details">
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <a href="tel:604-714-2000" style="color: inherit;">604-714-2000</a>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    <a href="mailto:hello@pristineclean.ca" style="color: inherit;">hello@pristineclean.ca</a>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span>123 Main St, Vancouver BC</span>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <span>Mon-Sat 8am-6pm</span>
-                </div>
-            </div>
-            <div class="contact-map">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Metro Vancouver, BC
-            </div>
-        </div>
-        <div class="contact-form">
-            <h2>Request a Free Quote</h2>
-            <form id="quoteForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Smith" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(604) 555-0123" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Type</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select a service...</option>
-                        <option value="residential">Residential Cleaning</option>
-                        <option value="commercial">Commercial Cleaning</option>
-                        <option value="airbnb">Airbnb Turnover</option>
-                        <option value="post-construction">Post-Construction</option>
-                        <option value="window">Window Cleaning</option>
-                        <option value="pressure">Pressure Washing</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your cleaning needs..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-gold" style="width: 100%; padding: 18px;">Get My Free Quote</button>
-            </form>
-        </div>
-    </section>
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+<div class="section-header">
+<div class="section-tag">Gallery</div>
+<h2 class="section-title">Our Work Speaks for Itself</h2>
+<p class="section-sub">Real transformations. Real homes. Real satisfaction.</p>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Gallery 1"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400&q=80" alt="Gallery 2"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&q=80" alt="Gallery 3"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Gallery 4"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Gallery 5"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Gallery 6"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="Gallery 7"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Gallery 8"></div>
+</div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="gold">Pristine</span><span class="white">Clean</span>
-                    </div>
-                    <p class="footer-tagline">Metro Vancouver's most trusted cleaning service. Professional, reliable, and always spotless.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#why-us">About</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Residential</a></li>
-                        <li><a href="#services">Commercial</a></li>
-                        <li><a href="#services">Airbnb Turnover</a></li>
-                        <li><a href="#services">Post-Construction</a></li>
-                        <li><a href="#services">Window & Pressure</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <a href="#" aria-label="Google">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 4.03-2.1 5.5z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Pristine Clean Vancouver. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<!-- CTA STRIP -->
+<div class="cta-strip">
+<h2>Ready for a Spotless Space?</h2>
+<p>Book your first clean today and see why 2,400+ Vancouver families trust Pristine Clean.</p>
+<a href="#contact" class="btn-dark">Get Your Free Quote →</a>
+</div>
 
-    <script>
-        // ========== HEADER SCROLL ==========
-        const header = document.getElementById('header');
-        let lastScroll = 0;
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="contact-inner">
+<div class="contact-info reveal">
+<div class="section-tag">Contact Us</div>
+<h2>Let's Talk About Your Clean</h2>
+<p>Whether it's a one-time deep clean or a recurring service, we'd love to hear from you. Get a free quote in 30 minutes.</p>
+<div class="contact-details">
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div><h4>Phone</h4><a href="tel:6047142000">604-714-2000</a></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">✉</div>
+<div><h4>Email</h4><a href="mailto:info@pristinecleanyvr.ca">info@pristinecleanyvr.ca</a></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📍</div>
+<div><h4>Location</h4><p>Vancouver, BC · Serving All Metro Vancouver</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🕐</div>
+<div><h4>Hours</h4><p>Mon – Sat: 7:00 AM – 7:00 PM</p></div>
+</div>
+</div>
+</div>
+<div class="contact-form reveal">
+<h3>Get Your Free Quote</h3>
+<form class="c-form" onsubmit="event.preventDefault(); alert('Thank you! We\'ll call you within 30 minutes.');">
+<input type="text" placeholder="Your Name *" required>
+<input type="tel" placeholder="Phone Number *" required>
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Postal Code (e.g. V6B 2K8)">
+<select><option value="">Service Needed</option><option>Residential Cleaning</option><option>Commercial Cleaning</option><option>Airbnb & Short-Term Rental</option><option>Post-Construction</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Window Cleaning</option><option>Pressure Washing</option><option>Other</option></select>
+<select><option value="">Preferred Date</option><option>As Soon As Possible</option><option>This Week</option><option>Next Week</option><option>Flexible</option></select>
+<textarea placeholder="Any special instructions or details?"></textarea>
+<button type="submit" class="form-submit">Get My Free Quote →</button>
+</form>
+</div>
+</div>
+</section>
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            lastScroll = currentScroll;
-        });
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="#" class="logo">
+<div class="logo-icon">✨</div>
+<div class="logo-text">Pristine<span>Clean</span></div>
+</a>
+<p>Vancouver's trusted cleaning professionals. Eco-friendly products, background-checked cleaners, 100% satisfaction guaranteed.</p>
+<div class="footer-socials">
+<a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="#">Residential Cleaning</a>
+<a href="#">Commercial Cleaning</a>
+<a href="#">Airbnb Turnover</a>
+<a href="#">Post-Construction</a>
+<a href="#">Deep Cleaning</a>
+<a href="#">Move-In / Move-Out</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Gallery</a>
+<a href="#">Reviews</a>
+<a href="#">Service Areas</a>
+<a href="#">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<a href="tel:6047142000">604-714-2000</a>
+<a href="mailto:info@pristinecleanyvr.ca">info@pristinecleanyvr.ca</a>
+<a href="#">Vancouver, BC</a>
+<a href="#">Mon–Sat: 7am – 7pm</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Pristine Clean Vancouver. All rights reserved.</p>
+</div>
+</footer>
 
-        // ========== MOBILE MENU OVERLAY ==========
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const closeMenu = document.getElementById('closeMenu');
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
 
-        if (hamburger && mobileMenuOverlay) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                mobileMenuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-            });
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const isDecimal = target % 1 !== 0;
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  });
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+}, { threshold: 0.5 });
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) statsObserver.observe(statsBar);
 
-            if (closeMenu) {
-                closeMenu.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            }
-
-            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // ========== SMOOTH SCROLL ==========
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
-
-        // Observe why cards
-        document.querySelectorAll('.why-card').forEach(card => observer.observe(card));
-
-        // Observe form groups
-        document.querySelectorAll('.form-group').forEach(group => observer.observe(group));
-
-        // Observe stat items
-        document.querySelectorAll('.stat-item').forEach(item => observer.observe(item));
-
-        // ========== STATS COUNT UP ==========
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const target = parseInt(stat.dataset.target);
-                        const suffix = stat.dataset.suffix || '';
-                        let current = 0;
-                        const increment = target / 60;
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= target) {
-                                current = target;
-                                clearInterval(timer);
-                            }
-                            stat.textContent = Math.floor(current) + suffix;
-                        }, 25);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stats-grid').forEach(grid => statsObserver.observe(grid));
-
-        // ========== BEFORE/AFTER SLIDER ==========
-        const baSlider = document.getElementById('baSlider');
-        const baBefore = document.getElementById('baBefore');
-        const baAfter = document.getElementById('baAfter');
-        const baHandle = document.getElementById('baHandle');
-        let isDragging = false;
-
-        function updateSlider(x) {
-            const rect = baSlider.getBoundingClientRect();
-            let position = (x - rect.left) / rect.width;
-            position = Math.max(0, Math.min(1, position));
-            const percentage = position * 100;
-
-            baHandle.style.left = percentage + '%';
-            baBefore.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-            baAfter.style.clipPath = `inset(0 0 0 ${percentage}%)`;
-        }
-
-        baHandle.addEventListener('mousedown', () => isDragging = true);
-        document.addEventListener('mouseup', () => isDragging = false);
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) updateSlider(e.clientX);
-        });
-
-        // Touch support
-        baHandle.addEventListener('touchstart', () => isDragging = true, { passive: true });
-        document.addEventListener('touchend', () => isDragging = false);
-        document.addEventListener('touchmove', (e) => {
-            if (isDragging) updateSlider(e.touches[0].clientX);
-        }, { passive: true });
-
-        // Allow clicking anywhere on slider
-        baSlider.addEventListener('click', (e) => {
-            updateSlider(e.clientX);
-        });
-
-        // ========== TESTIMONIALS CAROUSEL ==========
-        const track = document.getElementById('testimonialsTrack');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        let currentSlide = 0;
-        let autoPlayInterval;
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        function goToSlide(index) {
-            currentSlide = index;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            goToSlide((currentSlide + 1) % 3);
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                goToSlide(parseInt(dot.dataset.index));
-                resetAutoPlay();
-            });
-        });
-
-        function resetAutoPlay() {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(nextSlide, 5000);
-        }
-
-        autoPlayInterval = setInterval(nextSlide, 5000);
-
-        // Touch swipe support for testimonials
-        const testimonialsSlider = document.querySelector('.testimonials-slider');
-        if (testimonialsSlider) {
-            testimonialsSlider.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            testimonialsSlider.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-        }
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swiped left - next slide
-                    goToSlide((currentSlide + 1) % 3);
-                } else {
-                    // Swiped right - previous slide
-                    goToSlide((currentSlide - 1 + 3) % 3);
-                }
-                resetAutoPlay();
-            }
-        }
-
-        // ========== FORM HANDLING ==========
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.textContent = 'Quote Request Sent!';
-                btn.style.background = '#22c55e';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-    </script>
+// Before/after hover reveal
+const baImgs = document.querySelector('.ba-imgs');
+if (baImgs) {
+  baImgs.addEventListener('mouseenter', () => {
+    const after = baImgs.querySelector('.ba-after');
+    if (after) after.style.opacity = '1';
+  });
+  baImgs.addEventListener('mouseleave', () => {
+    const after = baImgs.querySelector('.ba-after');
+    if (after) after.style.opacity = '0';
+  });
+}
+</script>
 </body>
 </html>
