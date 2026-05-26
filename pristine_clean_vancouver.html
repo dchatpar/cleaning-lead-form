@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pristine Clean Vancouver | Professional Cleaning Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0F1923;--navy-light:#1a2a3a;--gold:#C9A84C;--gold-light:#e8c96e;
+--white:#ffffff;--gray-100:#f7f8fa;--gray-200:#e8eaed;--gray-600:#5f6368;
+--green:#22c55e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--navy);overflow-x:hidden;background:var(--white)}
+/* TOP BAR */
+.top-bar{background:var(--navy);color:#fff;font-size:13px;padding:8px 0;}
+.top-bar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
+.top-bar a{color:var(--gold);text-decoration:none;font-weight:500;}
+.top-bar a:hover{color:var(--gold-light);}
+.top-bar-left{display:flex;gap:20px;align-items:center;}
+.top-bar-right{display:flex;gap:16px;align-items:center;}
+.top-bar-right a{color:#ccc;transition:color .2s;}
+.top-bar-right a:hover{color:var(--gold);}
+/* HEADER */
+header{background:rgba(15,25,35,.97);backdrop-filter:blur(12px);position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(201,168,76,.15);}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:72px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:#fff;line-height:1.1;}
+.logo-text span{color:var(--gold);}
+nav{display:flex;align-items:center;gap:28px;}
+nav a{color:#ccc;text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;position:relative;}
+nav a:hover,nav a.active{color:#fff;}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .3s;}
+nav a:hover::after,nav a.active::after{width:100%;}
+/* DROPdown */
+.dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy);border:1px solid rgba(201,168,76,.2);border-radius:10px;min-width:220px;padding:8px 0;box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.dropdown:hover .dropdown-menu{display:block;}
+.dropdown-menu a{display:block;padding:10px 18px;color:#ccc;font-size:13px;transition:all .2s;}
+.dropdown-menu a:hover{background:rgba(201,168,76,.1);color:var(--gold);}
+/* CTA BTN */
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .3s;border:none;cursor:pointer;white-space:nowrap;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);padding:11px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--gold);transition:all .3s;}
+.btn-outline:hover{background:var(--gold);color:var(--navy);}
+.header-cta-btn{display:none!important;}
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1001;}
+.hamburger span{width:24px;height:2px;background:#fff;transition:all .3s;border-radius:2px;}
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80') center/cover no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,25,35,.92) 0%,rgba(15,25,35,.7) 50%,rgba(15,25,35,.85) 100%);}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:8px 16px;border-radius:50px;color:var(--gold);font-size:13px;font-weight:600;margin-bottom:24px;}
+.hero-badge::before{content:'★';color:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 span{color:var(--gold);}
+.hero-sub{font-size:17px;color:#94a3b8;line-height:1.7;margin-bottom:36px;max-width:520px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.hero-trust{display:flex;gap:32px;flex-wrap:wrap;}
+.hero-trust-item{display:flex;align-items:center;gap:8px;color:#94a3b8;font-size:14px;}
+.hero-trust-item .num{color:#fff;font-weight:700;font-size:22px;}
+.hero-trust-item .num span{color:var(--gold);}
+/* HERO RIGHT FORM */
+.hero-form-box{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:36px;backdrop-filter:blur(12px);}
+.hero-form-box h3{color:#fff;font-size:22px;font-weight:700;margin-bottom:4px;}
+.hero-form-box p{color:#94a3b8;font-size:13px;margin-bottom:20px;}
+.hero-form-box form{display:flex;flex-direction:column;gap:12px;}
+.hero-form-box input,.hero-form-box select{width:100%;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:border-color .3s;}
+/* select arrow fix */
+.hero-form-box select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+.hero-form-box select option{background:var(--navy);color:#fff;}
+.hero-form-box input::placeholder{color:#64748b;}
+.hero-form-box input:focus,.hero-form-box select:focus{border-color:var(--gold);}
+.hero-form-box .form-submit{width:100%;padding:14px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:4px;}
+.hero-form-box .form-submit:hover{background:var(--gold-light);transform:translateY(-1px);}
+/* ANIMATED SECTION BACKGROUNDS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes countUp{from{opacity:0;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
+.anim{opacity:0;}
+.anim.visible{animation:fadeUp .7s ease forwards;}
+.anim.delay1{animation-delay:.1s;}
+.anim.delay2{animation-delay:.2s;}
+.anim.delay3{animation-delay:.3s;}
+.anim.delay4{animation-delay:.4s;}
+/* STATS BAR */
+.stats-bar{background:var(--navy);padding:60px 0;}
+.stats-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center;}
+.stat-item{}
+.stat-num{font-size:52px;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif;display:block;animation:countUp .6s ease forwards;}
+.stat-label{color:#94a3b8;font-size:14px;font-weight:500;margin-top:4px;}
+/* SERVICES */
+.services{padding:100px 0;background:var(--gray-100);}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:6px 14px;border-radius:50px;color:var(--gold);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:800;color:var(--navy);margin-bottom:16px;line-height:1.15;}
+.section-sub{font-size:16px;color:var(--gray-600);max-width:560px;line-height:1.7;}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-header .section-sub{margin:0 auto;}
+.services-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.service-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:all .4s;cursor:pointer;border:1px solid var(--gray-200);}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.12);}
+.service-card-img{height:200px;overflow:hidden;position:relative;}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.service-card:hover .service-card-img img{transform:scale(1.08);}
+.service-card-body{padding:24px;}
+.service-icon{width:48px;height:48px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.service-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.service-card p{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:14px;}
+.service-link{color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:gap .3s;}
+.service-link:hover{gap:8px;}
+/* BEFORE/AFTER */
+.before-after{padding:100px 0;background:#fff;}
+.ba-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ba-wrapper{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;touch-action:none;}
+.ba-before-img,.ba-after-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.ba-before-img{filter:brightness(.75) saturate(.6);}
+.ba-after-img{clip-path:inset(0 50% 0 0);}
+.ba-label{position:absolute;top:20px;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:5;pointer-events:none;}
+.ba-label-before{left:20px;background:rgba(15,25,35,.8);color:#fff;}
+.ba-label-after{right:20px;background:var(--gold);color:var(--navy);}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:#fff;z-index:4;pointer-events:none;transform:translateX(-50%);}
+.ba-handle::before{content:'◄ ►';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);padding:8px 12px;border-radius:50px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 2px 16px rgba(0,0,0,.35);}
+.ba-text .section-title{margin-bottom:20px;}
+.ba-text p{color:var(--gray-600);font-size:15px;line-height:1.8;margin-bottom:28px;}
+.ba-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.ba-features li{display:flex;align-items:center;gap:10px;color:var(--navy);font-size:15px;font-weight:500;}
+.ba-features li::before{content:'✓';width:22px;height:22px;background:rgba(34,197,94,.1);color:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+/* TESTIMONIALS */
+.testimonials{padding:100px 0;background:var(--navy);position:relative;overflow:hidden;}
+.testimonials::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=60') center/cover no-repeat;opacity:.08;}
+.testimonials .section-title{color:#fff;}
+.testimonials .section-sub{color:#94a3b8;}
+.testi-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;position:relative;z-index:1;}
+.testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;transition:all .3s;}
+.testi-card:hover{background:rgba(255,255,255,.08);border-color:rgba(201,168,76,.3);}
+.testi-stars{color:var(--gold);font-size:16px;margin-bottom:16px;letter-spacing:2px;}
+.testi-text{color:#cbd5e1;font-size:15px;line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:16px;}
+.testi-name{color:#fff;font-weight:600;font-size:14px;}
+.testi-role{color:#64748b;font-size:12px;}
+/* AREAS */
+.areas{padding:100px 0;background:var(--gray-100);}
+.areas-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px;}
+.area-card{background:#fff;border-radius:12px;padding:24px;text-align:center;border:1px solid var(--gray-200);transition:all .3s;cursor:pointer;}
+.area-card:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(201,168,76,.12);transform:translateY(-3px);}
+.area-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.area-card p{font-size:12px;color:var(--gray-600);}
+/* CTA STRIP */
+.cta-strip{background:linear-gradient(135deg,var(--gold) 0%,#b8912e 100%);padding:80px 24px;text-align:center;}
+.cta-strip h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:800;color:var(--navy);margin-bottom:16px;}
+.cta-strip p{font-size:17px;color:rgba(15,25,35,.7);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-strip .btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:16px 36px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;transition:all .3s;}
+.cta-strip .btn-dark:hover{background:#1a2a3a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.3);}
+/* GALLERY */
+.gallery{padding:100px 0;background:#fff;}
+.gallery-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:50px;}
+.gallery-item{aspect-ratio:1;border-radius:12px;overflow:hidden;cursor:pointer;position:relative;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.gallery-item:hover img{transform:scale(1.1);}
+.gallery-item::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(15,25,35,.4);opacity:0;transition:opacity .3s;}
+.gallery-item:hover::after{opacity:1;}
+/* CONTACT */
+.contact{padding:100px 0;background:var(--gray-100);}
+.contact-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--navy);margin-bottom:16px;}
+.contact-info > p{color:var(--gray-600);font-size:15px;line-height:1.7;margin-bottom:36px;}
+.contact-details{display:flex;flex-direction:column;gap:20px;}
+.contact-item{display:flex;align-items:flex-start;gap:14px;}
+.contact-icon{width:44px;height:44px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.contact-item h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px;}
+.contact-item p,.contact-item a{font-size:14px;color:var(--gray-600);text-decoration:none;}
+.contact-item a:hover{color:var(--gold);}
+.contact-form{background:#fff;border-radius:20px;padding:40px;border:1px solid var(--gray-200);box-shadow:0 8px 32px rgba(0,0,0,.06);}
+.contact-form h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:24px;}
+.c-form{display:flex;flex-direction:column;gap:14px;}
+.c-form input,.c-form select,.c-form textarea{width:100%;padding:13px 16px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:10px;color:var(--navy);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .3s;}
+.c-form input:focus,.c-form select:focus,.c-form textarea:focus{border-color:var(--gold);}
+.c-form textarea{resize:vertical;min-height:110px;}
+.c-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235f6368' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;}
+.c-form select option{background:#fff;}
+.c-form .form-submit{width:100%;padding:15px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;}
+.c-form .form-submit:hover{background:var(--gold-light);}
+/* FOOTER */
+footer{background:var(--navy);padding:80px 0 0;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-brand .logo{margin-bottom:16px;}
+.footer-brand p{color:#64748b;font-size:14px;line-height:1.7;margin-bottom:20px;max-width:280px;}
+.footer-socials{display:flex;gap:10px;}
+.footer-socials a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:14px;transition:all .2s;text-decoration:none;}
+.footer-socials a:hover{background:var(--gold);color:var(--navy);}
+.footer-col h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px;}
+.footer-col a{display:block;color:#64748b;font-size:13px;text-decoration:none;padding:5px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{background:rgba(0,0,0,.2);padding:20px 0;text-align:center;}
+.footer-bottom p{color:#475569;font-size:12px;}
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{color:#fff;font-size:20px;font-weight:600;text-decoration:none;padding:10px;transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-content{grid-template-columns:1fr;gap:40px;}
+.hero-form-box{max-width:480px;}
+.ba-inner{grid-template-columns:1fr;gap:40px;}
+.contact-inner{grid-template-columns:1fr;gap:40px;}
+.footer-inner{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+.top-bar{display:none;}
+.hamburger{display:flex;}
+nav.main-nav{display:none;}
+.hero{padding-top:72px;min-height:auto;}
+.hero-content{padding:60px 24px 40px;grid-template-columns:1fr;}
+.hero h1{font-size:34px;}
+.hero-trust{gap:20px;}
+.hero-trust-item .num{font-size:18px;}
+.hero-form-box{padding:20px;}
+.hero-form-box h3{font-size:18px;}
+.hero-form-box .form-submit{padding:12px;font-size:14px;}
+.services-grid{grid-template-columns:1fr;}
+.testi-grid{grid-template-columns:1fr;}
+.areas-grid{grid-template-columns:repeat(2,1fr);}
+.gallery-grid{grid-template-columns:repeat(2,1fr);}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:30px;}
+.stat-num{font-size:38px;}
+.footer-inner{grid-template-columns:1fr;gap:32px;}
+.mobile-menu{display:flex;}
+}
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:all .7s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<!-- TOP BAR -->
+<div class="top-bar">
+<div class="top-bar-inner">
+<div class="top-bar-left">
+<a href="tel:6047142000">📞 604-714-2000</a>
+<span style="color:#475569">|</span>
+<a href="mailto:info@pristinecleanyvr.ca">✉ info@pristinecleanyvr.ca</a>
+</div>
+<div class="top-bar-right">
+<a href="#">Vancouver, BC</a>
+<a href="#">Mon–Sat: 7am – 7pm</a>
+</div>
+</div>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="header-inner">
+<a href="#" class="logo">
+<div class="logo-icon">✨</div>
+<div class="logo-text">Pristine<span>Clean</span></div>
+</a>
+<nav class="main-nav">
+<a href="#" class="active">Home</a>
+<div class="dropdown">
+<a href="#services">Services ▾</a>
+<div class="dropdown-menu">
+<a href="#">Residential Cleaning</a>
+<a href="#">Commercial Cleaning</a>
+<a href="#">Airbnb & Short-Term Rental</a>
+<a href="#">Post-Construction</a>
+<a href="#">Deep Cleaning</a>
+<a href="#">Move-In / Move-Out</a>
+<a href="#">Window Cleaning</a>
+<a href="#">Pressure Washing</a>
+</div>
+</div>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#testimonials">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;">
+<a href="#contact" class="btn-gold header-cta-btn">Get Free Quote</a>
+<div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+<span></span><span></span><span></span>
+</div>
+</div>
+</div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+<a href="#" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Home</a>
+<a href="#services" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Services</a>
+<a href="#about" onclick="document.querySelector('.mobile-menu').classList.remove('open')">About</a>
+<a href="#gallery" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Gallery</a>
+<a href="#testimonials" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Reviews</a>
+<a href="#contact" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Contact</a>
+<a href="#contact" class="btn-gold" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Get Free Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div>
+<div class="hero-badge">Vancouver's Most Trusted Cleaners</div>
+<h1>Experience the <span>Pristine</span> Difference</h1>
+<p class="hero-sub">Professional residential & commercial cleaning in Metro Vancouver. Eco-friendly products, vetted cleaners, 100% satisfaction guaranteed.</p>
+<div class="hero-actions">
+<a href="#contact" class="btn-gold">Get Your Free Quote →</a>
+<a href="#services" class="btn-outline">Our Services</a>
+</div>
+<div class="hero-trust">
+<div class="hero-trust-item"><span class="num">4.9<span>/5</span></span> Google Rating</div>
+<div class="hero-trust-item"><span class="num">2,400<span>+</span></span> Homes Cleaned</div>
+<div class="hero-trust-item"><span class="num">100<span>%</span></span> Satisfaction</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+<div class="stats-inner">
+<div class="stat-item anim"><span class="stat-num" data-target="2400">0</span><span class="stat-label">Homes Cleaned</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="4.9">0</span><span class="stat-label">Average Rating</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="98">0</span><span class="stat-label">% On-Time Rate</span></div>
+<div class="stat-item anim"><span class="stat-num" data-target="15">0</span><span class="stat-label">Years Experience</span></div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="section-header">
+<div class="section-tag">What We Do</div>
+<h2 class="section-title">Our Cleaning Services</h2>
+<p class="section-sub">From a quick tidy-up to a full deep clean — we have the right service for every home and business.</p>
+</div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Residential Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🏠</div>
+<h3>Residential Cleaning</h3>
+<p>Regular weekly, bi-weekly or monthly cleaning. Our vetted pros leave your home spotless every time.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🏢</div>
+<h3>Commercial Cleaning</h3>
+<p>Offices, retail spaces, warehouses. We work around your schedule to keep your business looking professional.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Airbnb Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">🔑</div>
+<h3>Airbnb & Short-Term Rentals</h3>
+<p>Turnover cleaning that gets your listing 5-star reviews. Fast turnaround between guests.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Post-Construction"></div>
+<div class="service-card-body">
+<div class="service-icon">🔨</div>
+<h3>Post-Construction</h3>
+<p>Heavy-duty cleanup after renovations. Dust, debris, paint — we handle it all and make it move-in ready.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80" alt="Deep Cleaning"></div>
+<div class="service-card-body">
+<div class="service-icon">✨</div>
+<h3>Deep Cleaning</h3>
+<p>A thorough top-to-bottom clean. Perfect for seasonal refreshes or before/after events.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+<div class="service-card reveal">
+<div class="service-card-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Move In Out"></div>
+<div class="service-card-body">
+<div class="service-icon">📦</div>
+<h3>Move-In / Move-Out</h3>
+<p>Make your old place shine or walk into a fresh new home. We ensure you get your full deposit back.</p>
+<a href="#contact" class="service-link">Get Quote →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="before-after" id="about">
+<div class="ba-inner">
+<div class="ba-wrapper" id="baSlider">
+<img src="ba_before.jpg" alt="Before" class="ba-before-img">
+<img src="ba_after.jpg" alt="After" class="ba-after-img">
+<div class="ba-label ba-label-before">Before</div>
+<div class="ba-label ba-label-after">After</div>
+<div class="ba-handle" id="baHandle"></div>
+</div>
+<div class="ba-text reveal">
+<div class="section-tag">The Transformation</div>
+<h2 class="section-title">See the Difference We Make</h2>
+<p>From cluttered to crystal clear — our professional team transforms any space. We use premium eco-friendly products and proven techniques to deliver results that exceed expectations.</p>
+<ul class="ba-features">
+<li>Certified, background-checked cleaners</li>
+<li>Eco-friendly & pet-safe products</li>
+<li>100% satisfaction guarantee</li>
+<li>Fully insured & bonded</li>
+<li>Same-day availability</li>
+</ul>
+<a href="#contact" class="btn-gold">Book a Clean Today →</a>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<div class="section-header">
+<div class="section-tag" style="background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.4);color:var(--gold);">Reviews</div>
+<h2 class="section-title">What Our Clients Say</h2>
+<p class="section-sub">Don't just take our word for it — here's what Vancouver families are saying.</p>
+</div>
+<div class="testi-grid">
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"Pristine Clean transformed our townhouse before move-in. The post-construction cleanup was impeccable — every surface sparkled. Best decision we made!"</p>
+<div class="testi-author"><div class="testi-avatar">SK</div><div><div class="testi-name">Sarah K.</div><div class="testi-role">Vancouver, BC · 5 days ago</div></div></div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"We use Pristine for our Airbnb turnover every week. Flawless every time — our guests consistently rate us 5 stars because of the clean. Highly recommend!"</p>
+<div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Mike R.</div><div class="testi-role">Burnaby, BC · 2 weeks ago</div></div></div>
+</div>
+<div class="testi-card reveal">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-text">"Called them for a deep clean before our daughter's birthday party. They came the same day and the place looked amazing. Professional, friendly, and affordable."</p>
+<div class="testi-author"><div class="testi-avatar">JL</div><div><div class="testi-name">Jennifer L.</div><div class="testi-role">Surrey, BC · 1 week ago</div></div></div>
+</div>
+</div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+<div class="section-header">
+<div class="section-tag">Service Areas</div>
+<h2 class="section-title">Proudly Serving Metro Vancouver</h2>
+<p class="section-sub">Fast, reliable cleaning across the entire Lower Mainland.</p>
+</div>
+<div class="areas-grid">
+<div class="area-card reveal"><h4>Vancouver</h4><p>Downtown, West End, Kitsilano</p></div>
+<div class="area-card reveal"><h4>Burnaby</h4><p>Metrotown, Metchosin</p></div>
+<div class="area-card reveal"><h4>Surrey</h4><p>Fleetwood, Guildford, Cloverdale</p></div>
+<div class="area-card reveal"><h4>Richmond</h4><p>Steveston, Brighouse</p></div>
+<div class="area-card reveal"><h4>North Vancouver</h4><p>Deep Cove, Lynn Valley</p></div>
+<div class="area-card reveal"><h4>Coquitlam</h4><p>Port Coquitlam, Port Moody</p></div>
+<div class="area-card reveal"><h4>Delta & Ladner</h4><p>Tsawwassen, Ladner</p></div>
+<div class="area-card reveal"><h4>Langley</h4><p>Walnut Grove, Fort Langley</p></div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+<div class="section-header">
+<div class="section-tag">Gallery</div>
+<h2 class="section-title">Our Work Speaks for Itself</h2>
+<p class="section-sub">Real transformations. Real homes. Real satisfaction.</p>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Gallery 1"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400&q=80" alt="Gallery 2"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&q=80" alt="Gallery 3"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Gallery 4"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Gallery 5"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Gallery 6"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="Gallery 7"></div>
+<div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Gallery 8"></div>
+</div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+<h2>Ready for a Spotless Space?</h2>
+<p>Book your first clean today and see why 2,400+ Vancouver families trust Pristine Clean.</p>
+<a href="#contact" class="btn-dark">Get Your Free Quote →</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="contact-inner">
+<div class="contact-info reveal">
+<div class="section-tag">Contact Us</div>
+<h2>Let's Talk About Your Clean</h2>
+<p>Whether it's a one-time deep clean or a recurring service, we'd love to hear from you. Get a free quote in 30 minutes.</p>
+<div class="contact-details">
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div><h4>Phone</h4><a href="tel:6047142000">604-714-2000</a></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">✉</div>
+<div><h4>Email</h4><a href="mailto:info@pristinecleanyvr.ca">info@pristinecleanyvr.ca</a></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📍</div>
+<div><h4>Location</h4><p>Vancouver, BC · Serving All Metro Vancouver</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🕐</div>
+<div><h4>Hours</h4><p>Mon – Sat: 7:00 AM – 7:00 PM</p></div>
+</div>
+</div>
+</div>
+<div class="contact-form reveal">
+<h3>Get Your Free Quote</h3>
+<form class="c-form" onsubmit="event.preventDefault(); alert('Thank you! We\'ll call you within 30 minutes.');">
+<input type="text" placeholder="Your Name *" required>
+<input type="tel" placeholder="Phone Number *" required>
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Postal Code (e.g. V6B 2K8)">
+<select><option value="">Service Needed</option><option>Residential Cleaning</option><option>Commercial Cleaning</option><option>Airbnb & Short-Term Rental</option><option>Post-Construction</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Window Cleaning</option><option>Pressure Washing</option><option>Other</option></select>
+<select><option value="">Preferred Date</option><option>As Soon As Possible</option><option>This Week</option><option>Next Week</option><option>Flexible</option></select>
+<textarea placeholder="Any special instructions or details?"></textarea>
+<button type="submit" class="form-submit">Get My Free Quote →</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="#" class="logo">
+<div class="logo-icon">✨</div>
+<div class="logo-text">Pristine<span>Clean</span></div>
+</a>
+<p>Vancouver's trusted cleaning professionals. Eco-friendly products, background-checked cleaners, 100% satisfaction guaranteed.</p>
+<div class="footer-socials">
+<a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="#">Residential Cleaning</a>
+<a href="#">Commercial Cleaning</a>
+<a href="#">Airbnb Turnover</a>
+<a href="#">Post-Construction</a>
+<a href="#">Deep Cleaning</a>
+<a href="#">Move-In / Move-Out</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="#">About Us</a>
+<a href="#">Gallery</a>
+<a href="#">Reviews</a>
+<a href="#">Service Areas</a>
+<a href="#">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<a href="tel:6047142000">604-714-2000</a>
+<a href="mailto:info@pristinecleanyvr.ca">info@pristinecleanyvr.ca</a>
+<a href="#">Vancouver, BC</a>
+<a href="#">Mon–Sat: 7am – 7pm</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Pristine Clean Vancouver. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const isDecimal = target % 1 !== 0;
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  });
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+}, { threshold: 0.5 });
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) statsObserver.observe(statsBar);
+
+// Before/after drag slider
+(function(){
+  var slider = document.getElementById('baSlider');
+  var handle = document.getElementById('baHandle');
+  if(!slider || !handle) return;
+  var afterImg = slider.querySelector('.ba-after-img');
+  function update(x) {
+    var rect = slider.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    afterImg.style.clipPath = 'inset(0 ' + ((1-pct)*100) + '% 0 0)';
+    handle.style.left = (pct * 100) + '%';
+  }
+  slider.addEventListener('mousemove', function(e){ update(e.clientX); });
+  slider.addEventListener('touchmove', function(e){ update(e.touches[0].clientX); }, {passive:true});
+  // init at 50%
+  update(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+})();
+</script>
+</body>
+</html>
