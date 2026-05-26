@@ -47,7 +47,7 @@ nav a:hover::after,nav a.active::after{width:100%;}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
 .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);padding:11px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:2px solid var(--gold);transition:all .3s;}
 .btn-outline:hover{background:var(--gold);color:var(--navy);}
-.header-cta-btn{display:none;}
+.header-cta-btn{display:none!important;}
 /* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1001;}
 .hamburger span{width:24px;height:2px;background:#fff;transition:all .3s;border-radius:2px;}
@@ -69,7 +69,7 @@ nav a:hover::after,nav a.active::after{width:100%;}
 /* HERO RIGHT FORM */
 .hero-form-box{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:36px;backdrop-filter:blur(12px);}
 .hero-form-box h3{color:#fff;font-size:22px;font-weight:700;margin-bottom:4px;}
-.hero-form-box p{color:#94a3b8;font-size:13px;margin-bottom:24px;}
+.hero-form-box p{color:#94a3b8;font-size:13px;margin-bottom:20px;}
 .hero-form-box form{display:flex;flex-direction:column;gap:12px;}
 .hero-form-box input,.hero-form-box select{width:100%;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:border-color .3s;}
 /* select arrow fix */
@@ -216,7 +216,6 @@ footer{background:var(--navy);padding:80px 0 0;}
 }
 @media(max-width:768px){
 .top-bar{display:none;}
-.header-cta-btn{display:flex;}
 .hamburger{display:flex;}
 nav.main-nav{display:none;}
 .hero{padding-top:72px;min-height:auto;}
@@ -224,6 +223,9 @@ nav.main-nav{display:none;}
 .hero h1{font-size:34px;}
 .hero-trust{gap:20px;}
 .hero-trust-item .num{font-size:18px;}
+.hero-form-box{padding:20px;}
+.hero-form-box h3{font-size:18px;}
+.hero-form-box .form-submit{padding:12px;font-size:14px;}
 .services-grid{grid-template-columns:1fr;}
 .testi-grid{grid-template-columns:1fr;}
 .areas-grid{grid-template-columns:repeat(2,1fr);}
