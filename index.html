@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pristine Clean Vancouver | Professional Cleaning Services</title>
+    <title>Pristine Clean Vancouver | Professional Cleaning Services Metro Vancouver</title>
+    <meta name="description" content="Metro Vancouver's #1 rated cleaning service. Residential, Commercial, Airbnb Turnover, Post-Construction, Window & Pressure Washing. Call 604-714-2000">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -17,10 +18,11 @@
         :root {
             --navy: #0F1923;
             --gold: #C9A84C;
+            --gold-light: #D4B76A;
             --white: #FFFFFF;
-            --light-bg: #F8F9FA;
-            --text: #1A1A2E;
-            --navy-light: #1a2633;
+            --light: #F8F9FA;
+            --gray: #6B7280;
+            --navy-light: #1A2A3A;
         }
 
         html {
@@ -29,7 +31,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text);
+            color: var(--navy);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -39,86 +41,99 @@
             font-weight: 700;
         }
 
-        /* ============ HEADER ============ */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER ========== */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 20px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 20px 0;
             transition: all 0.4s ease;
-            background: transparent;
         }
 
         .header.scrolled {
             background: var(--navy);
-            padding: 15px 5%;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-            transform: translateY(0);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.6rem;
+            font-size: 28px;
             font-weight: 800;
+        }
+
+        .logo .gold {
+            color: var(--gold);
+        }
+
+        .logo .white {
             color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--navy);
         }
 
         .nav {
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 36px;
         }
 
-        .nav a {
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
             color: var(--white);
-            text-decoration: none;
+            font-size: 15px;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
             background: var(--gold);
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
-        .nav a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .header-right {
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .header-cta {
             display: flex;
             align-items: center;
             gap: 20px;
@@ -127,27 +142,21 @@
         .header-phone {
             color: var(--white);
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .header-phone svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--gold);
+            font-size: 15px;
         }
 
         .btn {
-            padding: 12px 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
             border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 15px;
             cursor: pointer;
-            border: none;
-            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .btn-gold {
@@ -163,7 +172,7 @@
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 2px solid var(--white);
+            border-color: var(--white);
         }
 
         .btn-outline:hover {
@@ -172,54 +181,117 @@
             transform: scale(1.05);
         }
 
-        .mobile-menu-btn {
+        .hamburger {
             display: none;
-            background: none;
-            border: none;
+            flex-direction: column;
+            gap: 6px;
             cursor: pointer;
-            padding: 10px;
+            z-index: 1001;
         }
 
-        .mobile-menu-btn span {
-            display: block;
-            width: 25px;
+        .hamburger span {
+            width: 28px;
             height: 2px;
             background: var(--white);
-            margin: 6px 0;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
-        /* ============ HERO ============ */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ========== HERO ========== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(15,25,35,0.85) 0%, rgba(15,25,35,0.7) 100%),
-                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(15, 25, 35, 0.85) 0%, rgba(15, 25, 35, 0.6) 100%),
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
-            padding: 0 5%;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(201,168,76,0.1)"/></svg>') repeat;
-            background-size: 50px 50px;
-            opacity: 0.5;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
             opacity: 0;
             transform: translateY(40px);
-            animation: fadeUp 1s ease forwards 0.3s;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow svg {
+            width: 32px;
+            height: 32px;
+            color: var(--gold);
         }
 
         @keyframes fadeUp {
@@ -229,553 +301,566 @@
             }
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(201, 168, 76, 0.15);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            padding: 8px 16px;
-            border-radius: 50px;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-12px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-6px);
+            }
+        }
+
+        /* ========== TRUST STRIP ========== */
+        .trust-strip {
+            background: var(--navy);
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item.visible {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
             color: var(--gold);
-            font-size: 0.85rem;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            color: var(--white);
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 25px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 20px;
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--light);
+            padding: 120px 0;
         }
 
-        .hero h1 span {
-            color: var(--gold);
-        }
-
-        .hero-subtext {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            letter-spacing: 2px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--white);
-            font-size: 0.9rem;
-        }
-
-        .trust-badge svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--gold);
-        }
-
-        /* ============ SECTIONS COMMON ============ */
-        .section {
-            padding: 100px 5%;
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(36px, 4vw, 48px);
             color: var(--navy);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
-        .section-title p {
-            color: #666;
-            font-size: 1.1rem;
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .gold-line {
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
-
-        /* ============ SERVICES ============ */
-        .services {
-            background: var(--light-bg);
-        }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
 
         .service-card {
-            background: var(--white);
+            position: relative;
+            height: 400px;
             border-radius: 16px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
+            overflow: hidden;
+            cursor: pointer;
             opacity: 0;
-            transform: translateY(30px);
-            border: 2px solid transparent;
+            transform: translateY(40px);
         }
 
         .service-card.visible {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .service-card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-card-bg {
+            transform: scale(1.1);
+        }
+
+        .service-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(15, 25, 35, 0.9) 100%);
+            transition: background 0.5s ease;
+        }
+
+        .service-card:hover .service-card-overlay {
+            background: linear-gradient(180deg, transparent 0%, rgba(15, 25, 35, 0.7) 100%);
+        }
+
+        .service-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-card-link {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover .service-icon {
-            background: linear-gradient(135deg, var(--gold) 0%, #d4b05a 100%);
-        }
-
-        .service-icon svg {
-            width: 36px;
-            height: 36px;
-            fill: var(--white);
-            transition: fill 0.3s;
-        }
-
-        .service-card:hover .service-icon svg {
-            fill: var(--navy);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .learn-more {
-            color: var(--gold);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: gap 0.3s;
-        }
-
-        .learn-more:hover {
-            gap: 10px;
-        }
-
-        /* ============ BEFORE/AFTER ============ */
+        /* ========== BEFORE & AFTER ========== */
         .before-after {
-            background: var(--navy);
-            padding: 100px 5%;
-            text-align: center;
+            background: var(--white);
+            padding: 120px 0;
         }
 
-        .before-after .section-title h2 {
-            color: var(--white);
-        }
-
-        .before-after .section-title p {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .slider-container {
+        .ba-container {
             max-width: 1000px;
             margin: 0 auto;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
         }
 
-        .slider-wrapper {
+        .ba-slider {
             position: relative;
-            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            user-select: none;
+        }
+
+        .ba-images {
+            position: relative;
             height: 500px;
         }
 
-        .slider-image {
+        .ba-image {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+        }
+
+        .ba-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .slider-after {
+        .ba-before {
             clip-path: inset(0 50% 0 0);
         }
 
-        .slider-handle {
+        .ba-after {
+            clip-path: inset(0 0 0 50%);
+        }
+
+        .ba-label {
             position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: var(--gold);
-            cursor: ew-resize;
-            transform: translateX(-50%);
+            top: 24px;
+            padding: 8px 20px;
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
             z-index: 10;
         }
 
-        .slider-handle::before {
+        .ba-label.before {
+            left: 24px;
+        }
+
+        .ba-label.after {
+            right: 24px;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--gold);
+            cursor: ew-resize;
+            z-index: 20;
+            transform: translateX(-50%);
+        }
+
+        .ba-handle::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             background: var(--gold);
             border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .slider-handle::after {
+        .ba-handle::after {
             content: '⟷';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: var(--navy);
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 700;
+            z-index: 1;
         }
 
-        .slider-label {
-            position: absolute;
-            bottom: 20px;
-            padding: 8px 20px;
-            background: rgba(0,0,0,0.7);
-            color: var(--white);
-            font-weight: 600;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        .slider-label.before {
-            left: 20px;
-        }
-
-        .slider-label.after {
-            right: 20px;
-        }
-
-        /* ============ WHY CHOOSE US ============ */
+        /* ========== WHY CHOOSE US ========== */
         .why-us {
-            background: var(--white);
+            background: var(--navy);
+            padding: 120px 0;
         }
 
-        .why-grid {
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .why-us-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
         }
 
         .why-card {
             text-align: center;
-            padding: 40px 25px;
+            padding: 48px 24px;
+            background: var(--navy-light);
             border-radius: 16px;
-            background: var(--light-bg);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.4s ease;
+            transform: translateY(40px);
         }
 
         .why-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .why-card:hover {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            animation: fadeUp 0.6s ease forwards;
         }
 
         .why-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--navy);
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
         }
 
         .why-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--gold);
+            width: 36px;
+            height: 36px;
+            color: var(--navy);
         }
 
         .why-card h3 {
-            font-size: 1.1rem;
-            color: var(--navy);
-            margin-bottom: 10px;
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 12px;
         }
 
         .why-card p {
-            color: #666;
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
         }
 
-        /* ============ STAT STRIP ============ */
-        .stats {
-            background: linear-gradient(135deg, var(--navy) 0%, #162330 100%);
-            padding: 60px 5%;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat-item {
-            color: var(--white);
-        }
-
-        .stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-
-        /* ============ TESTIMONIALS ============ */
+        /* ========== TESTIMONIALS ========== */
         .testimonials {
-            background: var(--light-bg);
+            background: var(--light);
+            padding: 120px 0;
+        }
+
+        .testimonials-slider {
+            position: relative;
             overflow: hidden;
         }
 
-        .testimonial-carousel {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial-track {
+        .testimonials-track {
             display: flex;
             transition: transform 0.5s ease;
         }
 
         .testimonial-card {
             min-width: 100%;
-            padding: 20px;
+            padding: 0 80px;
         }
 
         .testimonial-inner {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
         }
 
         .testimonial-stars {
             display: flex;
             justify-content: center;
-            gap: 5px;
-            margin-bottom: 25px;
+            gap: 4px;
+            margin-bottom: 24px;
         }
 
         .testimonial-stars svg {
             width: 24px;
             height: 24px;
+            color: var(--gold);
             fill: var(--gold);
         }
 
         .testimonial-quote {
-            font-size: 1.2rem;
-            color: var(--text);
-            line-height: 1.8;
-            margin-bottom: 30px;
+            font-size: 22px;
+            color: var(--navy);
+            line-height: 1.7;
+            margin-bottom: 32px;
             font-style: italic;
         }
 
         .testimonial-author {
-            font-family: 'Poppins', sans-serif;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 18px;
             color: var(--navy);
         }
 
         .testimonial-location {
-            color: #888;
-            font-size: 0.9rem;
+            color: var(--gray);
+            font-size: 15px;
+            margin-top: 4px;
         }
 
-        .carousel-dots {
+        .testimonials-dots {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 48px;
         }
 
-        .carousel-dot {
+        .testimonial-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #ddd;
+            background: var(--navy);
+            opacity: 0.2;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .carousel-dot.active {
+        .testimonial-dot.active {
             background: var(--gold);
+            opacity: 1;
             transform: scale(1.2);
         }
 
-        /* ============ SERVICE AREAS ============ */
+        /* ========== SERVICE AREAS ========== */
         .areas {
             background: var(--white);
+            padding: 120px 0;
         }
 
         .areas-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            max-width: 1000px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
         }
 
         .area-badge {
-            padding: 12px 25px;
-            background: var(--light-bg);
-            border-radius: 50px;
-            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-weight: 600;
             color: var(--navy);
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .area-badge:hover {
-            background: var(--navy);
-            color: var(--white);
             border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.2);
         }
 
-        /* ============ CONTACT ============ */
+        .area-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========== CONTACT ========== */
         .contact {
-            background: var(--light-bg);
-        }
-
-        .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
         }
 
-        .contact-info h3 {
-            font-size: 1.8rem;
-            color: var(--navy);
-            margin-bottom: 30px;
+        .contact-info {
+            background: var(--navy);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h2 {
+            color: var(--white);
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 48px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 48px;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
+            align-items: center;
+            gap: 16px;
+            color: var(--white);
         }
 
-        .contact-item-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--navy);
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        .contact-map {
+            height: 200px;
+            background: var(--navy-light);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            gap: 12px;
+            color: var(--gold);
+            font-weight: 600;
         }
 
-        .contact-item-icon svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--gold);
-        }
-
-        .contact-item-text h4 {
-            font-size: 1rem;
-            color: var(--navy);
-            margin-bottom: 5px;
-        }
-
-        .contact-item-text p {
-            color: #666;
-            font-size: 0.95rem;
+        .contact-map svg {
+            width: 32px;
+            height: 32px;
         }
 
         .contact-form {
             background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .contact-form h3 {
-            font-size: 1.5rem;
+        .contact-form h2 {
+            font-size: 32px;
             color: var(--navy);
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .form-group.visible {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
 
         .form-row {
@@ -784,159 +869,153 @@
             gap: 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.5s ease;
-        }
-
-        .form-group.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e8e8e8;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            font-size: 1.1rem;
-        }
-
-        /* ============ FOOTER ============ */
+        /* ========== FOOTER ========== */
         .footer {
             background: var(--navy);
-            padding: 80px 5% 30px;
+            padding: 64px 0 32px;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
         }
 
         .footer-brand .logo {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        .footer-brand p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            max-width: 280px;
         }
 
         .footer-links h4 {
             color: var(--white);
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .footer-links a {
-            display: block;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: color 0.3s;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
             color: var(--gold);
         }
 
-        .social-icons {
+        .footer-social {
             display: flex;
-            gap: 15px;
+            gap: 16px;
         }
 
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .social-icon:hover {
+        .footer-social a:hover {
             background: var(--gold);
         }
 
-        .social-icon svg {
+        .footer-social svg {
             width: 20px;
             height: 20px;
-            fill: var(--white);
-            transition: fill 0.3s;
+            color: var(--white);
         }
 
-        .social-icon:hover svg {
-            fill: var(--navy);
+        .footer-social a:hover svg {
+            color: var(--navy);
         }
 
         .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            padding-top: 30px;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
         }
 
-        /* ============ RESPONSIVE ============ */
-        @media (max-width: 992px) {
-            .contact-wrapper {
+        /* ========== MOBILE MENU ========== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 48px;
+            }
+
+            .why-us-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .areas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact {
                 grid-template-columns: 1fr;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
+            .contact-info {
+                padding: 60px 40px;
             }
 
-            .nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
+            .contact-form {
+                padding: 60px 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .header-phone {
+            .nav-links,
+            .header-cta .header-phone {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             .hero-content {
@@ -951,16 +1030,28 @@
                 justify-content: center;
             }
 
-            .slider-wrapper {
-                height: 300px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .testimonial-inner {
-                padding: 30px 20px;
+            .service-card {
+                height: 320px;
             }
 
-            .contact-form {
-                padding: 30px 20px;
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .areas-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .form-row {
@@ -968,619 +1059,669 @@
             }
 
             .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .ba-images {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
 
-            .social-icons {
-                justify-content: center;
+            .areas-grid {
+                grid-template-columns: 1fr;
             }
-        }
 
-        /* ============ ANIMATIONS ============ */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
+            .testimonial-card {
+                padding: 0 20px;
+            }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Parallax */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            .testimonial-quote {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header class="header" id="header">
-        <a href="#" class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <span class="gold">Pristine</span><span class="white">Clean</span>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">About</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#areas">Areas</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="header-cta">
+                        <a href="tel:604-714-2000" class="header-phone">604-714-2000</a>
+                        <a href="#contact" class="btn btn-gold">Get Quote</a>
+                    </div>
+                </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            Pristine Clean
-        </a>
-        <nav class="nav">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#why-us">About</a>
-            <a href="#testimonials">Reviews</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-right">
-            <div class="header-phone">
-                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                604-555-0123
-            </div>
-            <a href="#contact" class="btn btn-gold">Get Quote</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#areas">Areas</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:604-714-2000" style="color: var(--gold);">604-714-2000</a>
+    </div>
+
     <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                Metro Vancouver's #1 Rated Cleaning Service
-            </div>
-            <h1>Vancouver's Most <span>Trusted</span> Cleaning Service</h1>
-            <p class="hero-subtext">Residential • Commercial • Airbnb • Post-Construction</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
-            </div>
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    5-Star Rated
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Metro Vancouver's #1 Rated</span>
+                <h1>Your Home Deserves a Professional Touch</h1>
+                <p class="hero-subtitle">Trusted by 2,500+ Vancouver families for spotless, reliable cleaning</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-gold">Get Your Free Quote</a>
+                    <a href="#services" class="btn btn-outline">View Our Services</a>
                 </div>
-                <div class="trust-badge">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    Licensed & Insured
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Licensed & Insured</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <span>5-Star Rated</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Same-Day Available</span>
+                    </div>
                 </div>
-                <div class="trust-badge">
-                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                    2,500+ Homes Served
+            </div>
+        </div>
+        <div class="scroll-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip" id="trust">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2500" data-suffix="+">0</div>
+                    <div class="stat-label">Homes Cleaned</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98" data-suffix="%">0</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8" data-suffix=" Years">0</div>
+                    <div class="stat-label">Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1" data-suffix="-Day">0</div>
+                    <div class="stat-label">Same-Day Service</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="section services" id="services">
-        <div class="section-title">
-            <h2>Our Cleaning Services</h2>
-            <div class="gold-line"></div>
-            <p>Professional cleaning solutions for every need</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card" data-delay="0">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                </div>
-                <h3>Residential Cleaning</h3>
-                <p>Complete home cleaning including kitchens, bathrooms, bedrooms, and living areas with eco-friendly products.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Cleaning Services</h2>
+                <p class="section-subtitle">From deep residential cleaning to specialized commercial and post-construction services</p>
             </div>
-            <div class="service-card" data-delay="100">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Residential Cleaning</h3>
+                        <p>Complete home cleaning with eco-friendly products</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
                 </div>
-                <h3>Commercial Cleaning</h3>
-                <p>Professional office and business cleaning with flexible scheduling to minimize disruption.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card" data-delay="200">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Commercial Cleaning</h3>
+                        <p>Professional office and business cleaning solutions</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
                 </div>
-                <h3>Airbnb Turnover</h3>
-                <p>Fast turnaround cleaning for short-term rentals. We ensure 5-star guest experiences every time.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card" data-delay="300">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Airbnb Turnover</h3>
+                        <p>Fast turnovers to keep your guests delighted</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
                 </div>
-                <h3>Post-Construction</h3>
-                <p>Thorough post-renovation cleaning removing all dust, debris, and construction residue.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card" data-delay="400">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Post-Construction</h3>
+                        <p>Remove debris and polish your new space</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
                 </div>
-                <h3>Window Cleaning</h3>
-                <p>Crystal-clear window cleaning for homes and businesses. Interior and exterior services available.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card" data-delay="500">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z"/></svg>
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Window Cleaning</h3>
+                        <p>Crystal clear windows inside and out</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
                 </div>
-                <h3>Pressure Washing</h3>
-                <p>Professional exterior cleaning for driveways, decks, siding, and more.</p>
-                <a href="#contact" class="learn-more">Learn More →</a>
+                <div class="service-card">
+                    <div class="service-card-bg" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80');"></div>
+                    <div class="service-card-overlay"></div>
+                    <div class="service-card-content">
+                        <h3>Pressure Washing</h3>
+                        <p>Restore exterior surfaces to like-new condition</p>
+                        <a href="#contact" class="service-card-link">Learn More <span>→</span></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- BEFORE/AFTER -->
+    <!-- BEFORE & AFTER -->
     <section class="before-after">
-        <div class="section-title">
-            <h2>See the Difference</h2>
-            <div class="gold-line"></div>
-            <p>Drag the slider to reveal the transformation</p>
-        </div>
-        <div class="slider-container" id="sliderContainer">
-            <div class="slider-wrapper">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800" alt="Before" class="slider-image slider-before">
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800" alt="After" class="slider-image slider-after" id="sliderAfter">
-                <div class="slider-handle" id="sliderHandle">
-                    <span class="slider-label before">Before</span>
-                    <span class="slider-label after">After</span>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See the Difference</h2>
+                <p class="section-subtitle">Drag the slider to see the transformation</p>
+            </div>
+            <div class="ba-container">
+                <div class="ba-slider" id="baSlider">
+                    <div class="ba-images">
+                        <div class="ba-image ba-before" id="baBefore">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Before cleaning">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image ba-after" id="baAfter">
+                            <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80" alt="After cleaning">
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-handle" id="baHandle"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="section why-us" id="why-us">
-        <div class="section-title">
-            <h2>Why Choose Pristine Clean?</h2>
-            <div class="gold-line"></div>
-            <p>What sets us apart from the rest</p>
-        </div>
-        <div class="why-grid">
-            <div class="why-card" data-delay="0">
-                <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Pristine Clean</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Experience the difference of professional cleaning</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Fully Insured</h3>
+                    <p>Complete peace of mind with $2M liability coverage for every service</p>
                 </div>
-                <h3>Fully Insured & Bonded</h3>
-                <p>Complete peace of mind with full liability coverage</p>
-            </div>
-            <div class="why-card" data-delay="100">
-                <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>5-Star Team</h3>
+                    <p>Background-checked professionals trained to exceed expectations</p>
                 </div>
-                <h3>Flexible Scheduling</h3>
-                <p>Book anytime that works for you, including weekends</p>
-            </div>
-            <div class="why-card" data-delay="200">
-                <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Flexible Hours</h3>
+                    <p>Book appointments Monday through Saturday, 8am to 6pm</p>
                 </div>
-                <h3>5-Star Rated Team</h3>
-                <p>Consistently rated 5 stars by hundreds of happy clients</p>
-            </div>
-            <div class="why-card" data-delay="300">
-                <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7.35 16.76l1.27 1.27A10 10 0 0 0 12 22a10 10 0 0 0 6.08-1.97l1.27-1.27A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Safe, non-toxic products that protect your family and pets</p>
                 </div>
-                <h3>Eco-Friendly Products</h3>
-                <p>Safe for your family, pets, and the environment</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- STAT STRIP -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number" data-target="2500">0</div>
-                <div class="stat-label">Homes Cleaned</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="98" data-suffix="%">0</div>
-                <div class="stat-label">Satisfaction Rate</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="8" data-suffix="+">0</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="1" data-prefix="">Same-Day</div>
-                <div class="stat-label">Service Available</div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>What Our Clients Say</h2>
-            <div class="gold-line"></div>
-            <p>Trusted by homeowners and businesses across Metro Vancouver</p>
-        </div>
-        <div class="testimonial-carousel">
-            <div class="testimonial-track" id="testimonialTrack">
-                <div class="testimonial-card">
-                    <div class="testimonial-inner">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Join thousands of satisfied customers across Metro Vancouver</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-inner">
+                            <div class="testimonial-stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="testimonial-quote">"Pristine Clean transformed our home! The team was punctual, thorough, and left everything sparkling. We've never seen our kitchen shine like this before."</p>
+                            <div class="testimonial-author">Sarah M.</div>
+                            <div class="testimonial-location">Kitsilano, Vancouver</div>
                         </div>
-                        <p class="testimonial-quote">"Pristine Clean transformed our Airbnb between guests. They're reliable, thorough, and always leave the place spotless. Our guests consistently rate us 5 stars because of their amazing work!"</p>
-                        <div class="testimonial-author">Sarah Mitchell</div>
-                        <div class="testimonial-location">Kitsilano</div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-inner">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <div class="testimonial-card">
+                        <div class="testimonial-inner">
+                            <div class="testimonial-stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="testimonial-quote">"We use them weekly for our office. Always professional, never late. Highly recommend for any business looking for reliable commercial cleaning."</p>
+                            <div class="testimonial-author">James T.</div>
+                            <div class="testimonial-location">Burnaby</div>
                         </div>
-                        <p class="testimonial-quote">"We've used Pristine Clean for our office building for over 3 years now. Their commercial team is professional, punctual, and always delivers exceptional results. Highly recommend!"</p>
-                        <div class="testimonial-author">James Chen</div>
-                        <div class="testimonial-location">Burnaby</div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-inner">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <div class="testimonial-card">
+                        <div class="testimonial-inner">
+                            <div class="testimonial-stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="testimonial-quote">"Best Airbnb cleaning service in Vancouver. They turn over our units same-day. Perfect results every time. My guests always comment on how clean the place is!"</p>
+                            <div class="testimonial-author">Priya R.</div>
+                            <div class="testimonial-location">Surrey</div>
                         </div>
-                        <p class="testimonial-quote">"After our home renovation, we thought we'd never get rid of all the dust. Pristine Clean handled the post-construction cleanup beautifully. Worth every penny!"</p>
-                        <div class="testimonial-author">Amanda Thompson</div>
-                        <div class="testimonial-location">Surrey</div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-dots" id="carouselDots">
-                <div class="carousel-dot active" data-index="0"></div>
-                <div class="carousel-dot" data-index="1"></div>
-                <div class="carousel-dot" data-index="2"></div>
+            <div class="testimonials-dots">
+                <div class="testimonial-dot active" data-index="0"></div>
+                <div class="testimonial-dot" data-index="1"></div>
+                <div class="testimonial-dot" data-index="2"></div>
             </div>
         </div>
     </section>
 
     <!-- SERVICE AREAS -->
-    <section class="section areas">
-        <div class="section-title">
-            <h2>Areas We Serve</h2>
-            <div class="gold-line"></div>
-            <p>Professional cleaning across Metro Vancouver</p>
-        </div>
-        <div class="areas-grid">
-            <div class="area-badge">Vancouver</div>
-            <div class="area-badge">Burnaby</div>
-            <div class="area-badge">Surrey</div>
-            <div class="area-badge">Coquitlam</div>
-            <div class="area-badge">Richmond</div>
-            <div class="area-badge">North Vancouver</div>
-            <div class="area-badge">West Vancouver</div>
-            <div class="area-badge">New Westminster</div>
-            <div class="area-badge">Delta</div>
-            <div class="area-badge">Langley</div>
+    <section class="areas" id="areas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Areas We Serve</h2>
+                <p class="section-subtitle">Professional cleaning throughout Metro Vancouver</p>
+            </div>
+            <div class="areas-grid">
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Vancouver
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Burnaby
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Surrey
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Coquitlam
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Richmond
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    North Vancouver
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    West Vancouver
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    New Westminster
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Delta
+                </div>
+                <div class="area-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Langley
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section contact" id="contact">
-        <div class="contact-wrapper">
-            <div class="contact-info fade-in">
-                <h3>Get In Touch</h3>
+    <section class="contact" id="contact">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Ready for a cleaner home or business? Contact us today for a free quote.</p>
+            <div class="contact-details">
                 <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <h4>Phone</h4>
-                        <p>604-555-0123</p>
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:604-714-2000" style="color: inherit;">604-714-2000</a>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <h4>Email</h4>
-                        <p>hello@pristineclean.ca</p>
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:hello@pristineclean.ca" style="color: inherit;">hello@pristineclean.ca</a>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <h4>Address</h4>
-                        <p>123 Main Street, Vancouver, BC V6B 1A1</p>
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>123 Main St, Vancouver BC</span>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                    </div>
-                    <div class="contact-item-text">
-                        <h4>Hours</h4>
-                        <p>Mon-Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p>
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Mon-Sat 8am-6pm</span>
                 </div>
             </div>
-            <div class="contact-form fade-in">
-                <h3>Request a Free Quote</h3>
-                <form id="quoteForm">
-                    <div class="form-row">
-                        <div class="form-group" data-delay="0">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group" data-delay="100">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(604) 555-0123" required>
-                        </div>
-                    </div>
-                    <div class="form-group" data-delay="200">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group" data-delay="300">
-                        <label for="serviceType">Service Type</label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="">Select a service...</option>
-                            <option value="residential">Residential Cleaning</option>
-                            <option value="commercial">Commercial Cleaning</option>
-                            <option value="airbnb">Airbnb Turnover</option>
-                            <option value="post-construction">Post-Construction</option>
-                            <option value="window">Window Cleaning</option>
-                            <option value="pressure">Pressure Washing</option>
-                        </select>
-                    </div>
-                    <div class="form-group" data-delay="400">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your cleaning needs..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-gold submit-btn">Submit Request</button>
-                </form>
+            <div class="contact-map">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Metro Vancouver, BC
             </div>
+        </div>
+        <div class="contact-form">
+            <h2>Request a Free Quote</h2>
+            <form id="quoteForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(604) 555-0123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="residential">Residential Cleaning</option>
+                        <option value="commercial">Commercial Cleaning</option>
+                        <option value="airbnb">Airbnb Turnover</option>
+                        <option value="post-construction">Post-Construction</option>
+                        <option value="window">Window Cleaning</option>
+                        <option value="pressure">Pressure Washing</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your cleaning needs..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-gold" style="width: 100%; padding: 18px;">Get My Free Quote</button>
+            </form>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="gold">Pristine</span><span class="white">Clean</span>
                     </div>
-                    Pristine Clean
-                </a>
-                <p>Vancouver's premier cleaning service. Professional, reliable, and eco-friendly cleaning solutions for homes and businesses across Metro Vancouver.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#why-us">About Us</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-links">
-                <h4>Connect With Us</h4>
-                <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                    <p class="footer-tagline">Metro Vancouver's most trusted cleaning service. Professional, reliable, and always spotless.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">About</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Residential</a></li>
+                        <li><a href="#services">Commercial</a></li>
+                        <li><a href="#services">Airbnb Turnover</a></li>
+                        <li><a href="#services">Post-Construction</a></li>
+                        <li><a href="#services">Window & Pressure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                     </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </a>
-                    <a href="#" class="social-icon" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                    <a href="#" aria-label="Google">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 4.03-2.1 5.5z"/></svg>
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 Pristine Clean Vancouver. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2026 Pristine Clean Vancouver. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
+        // ========== HEADER SCROLL ==========
         const header = document.getElementById('header');
         let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-            
             lastScroll = currentScroll;
         });
 
-        // Intersection Observer for fade-in animations
+        // ========== MOBILE MENU ==========
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    const delay = entry.target.dataset.delay || 0;
                     setTimeout(() => {
                         entry.target.classList.add('visible');
-                    }, delay);
-                    
-                    // Count-up animation for stats
-                    if (entry.target.classList.contains('stat-item')) {
-                        const counter = entry.target.querySelector('.stat-number');
-                        const target = parseInt(counter.dataset.target);
-                        const suffix = counter.dataset.suffix || '+';
-                        const prefix = counter.dataset.prefix || '';
-                        
-                        if (target && target !== 1) {
-                            let current = 0;
-                            const increment = target / 50;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    current = target;
-                                    clearInterval(timer);
-                                }
-                                counter.textContent = prefix + Math.floor(current) + suffix;
-                            }, 30);
-                        }
-                    }
+                    }, index * 100);
                 }
             });
         }, observerOptions);
 
         // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
-        });
+        document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
 
-        // Observe why us cards
-        document.querySelectorAll('.why-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Observe stat items
-        document.querySelectorAll('.stat-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Observe fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        // Observe why cards
+        document.querySelectorAll('.why-card').forEach(card => observer.observe(card));
 
         // Observe form groups
-        document.querySelectorAll('.form-group').forEach(group => {
-            observer.observe(group);
-        });
+        document.querySelectorAll('.form-group').forEach(group => observer.observe(group));
 
-        // Before/After Slider
-        const sliderContainer = document.getElementById('sliderContainer');
-        const sliderHandle = document.getElementById('sliderHandle');
-        const sliderAfter = document.getElementById('sliderAfter');
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach(item => observer.observe(item));
+
+        // ========== STATS COUNT UP ==========
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.dataset.target);
+                        const suffix = stat.dataset.suffix || '';
+                        let current = 0;
+                        const increment = target / 60;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.floor(current) + suffix;
+                        }, 25);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-grid').forEach(grid => statsObserver.observe(grid));
+
+        // ========== BEFORE/AFTER SLIDER ==========
+        const baSlider = document.getElementById('baSlider');
+        const baBefore = document.getElementById('baBefore');
+        const baAfter = document.getElementById('baAfter');
+        const baHandle = document.getElementById('baHandle');
         let isDragging = false;
 
         function updateSlider(x) {
-            const rect = sliderContainer.getBoundingClientRect();
-            let position = ((x - rect.left) / rect.width) * 100;
-            position = Math.max(5, Math.min(95, position));
-            
-            sliderHandle.style.left = position + '%';
-            sliderAfter.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+            const rect = baSlider.getBoundingClientRect();
+            let position = (x - rect.left) / rect.width;
+            position = Math.max(0, Math.min(1, position));
+            const percentage = position * 100;
+
+            baHandle.style.left = percentage + '%';
+            baBefore.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+            baAfter.style.clipPath = `inset(0 0 0 ${percentage}%)`;
         }
 
-        sliderHandle.addEventListener('mousedown', () => isDragging = true);
+        baHandle.addEventListener('mousedown', () => isDragging = true);
         document.addEventListener('mouseup', () => isDragging = false);
         document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                updateSlider(e.clientX);
-            }
+            if (isDragging) updateSlider(e.clientX);
         });
 
         // Touch support
-        sliderHandle.addEventListener('touchstart', () => isDragging = true);
+        baHandle.addEventListener('touchstart', () => isDragging = true);
         document.addEventListener('touchend', () => isDragging = false);
         document.addEventListener('touchmove', (e) => {
-            if (isDragging) {
-                updateSlider(e.touches[0].clientX);
-            }
+            if (isDragging) updateSlider(e.touches[0].clientX);
         });
 
-        // Testimonial Carousel
-        const track = document.getElementById('testimonialTrack');
-        const dots = document.querySelectorAll('.carousel-dot');
+        // Allow clicking anywhere on slider
+        baSlider.addEventListener('click', (e) => {
+            updateSlider(e.clientX);
+        });
+
+        // ========== TESTIMONIALS CAROUSEL ==========
+        const track = document.getElementById('testimonialsTrack');
+        const dots = document.querySelectorAll('.testimonial-dot');
         let currentSlide = 0;
-        const totalSlides = 3;
-        let autoRotate;
+        let autoPlayInterval;
 
         function goToSlide(index) {
             currentSlide = index;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            track.style.transform = `translateX(-${index * 100}%)`;
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
+                dot.classList.toggle('active', i === index);
             });
         }
 
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
+            goToSlide((currentSlide + 1) % 3);
         }
 
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 goToSlide(parseInt(dot.dataset.index));
-                resetAutoRotate();
+                resetAutoPlay();
             });
         });
 
-        function resetAutoRotate() {
-            clearInterval(autoRotate);
-            autoRotate = setInterval(nextSlide, 5000);
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(nextSlide, 5000);
         }
 
-        autoRotate = setInterval(nextSlide, 5000);
+        autoPlayInterval = setInterval(nextSlide, 5000);
 
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero');
-            const scrolled = window.pageYOffset;
-            if (scrolled < window.innerHeight) {
-                hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
-            }
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
+        // ========== FORM HANDLING ==========
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = this.querySelector('.submit-btn');
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
-            
+
             setTimeout(() => {
-                btn.textContent = 'Request Sent!';
-                btn.style.background = '#28a745';
-                
+                btn.textContent = 'Quote Request Sent!';
+                btn.style.background = '#22c55e';
                 setTimeout(() => {
-                    btn.textContent = 'Submit Request';
+                    btn.textContent = originalText;
                     btn.style.background = '';
                     btn.disabled = false;
                     this.reset();
