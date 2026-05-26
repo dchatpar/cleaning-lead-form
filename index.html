@@ -118,15 +118,15 @@ nav a:hover::after,nav a.active::after{width:100%;}
 /* BEFORE/AFTER */
 .before-after{padding:100px 0;background:#fff;}
 .ba-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.ba-imgs{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;}
-.ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s;}
-.ba-img-after{opacity:0;}
-.ba-container:hover .ba-img-after{opacity:1;}
-.ba-label{position:absolute;top:20px;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2;}
+.ba-wrapper{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;touch-action:none;}
+.ba-before-img,.ba-after-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.ba-before-img{filter:brightness(.75) saturate(.6);}
+.ba-after-img{clip-path:inset(0 50% 0 0);}
+.ba-label{position:absolute;top:20px;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:5;pointer-events:none;}
 .ba-label-before{left:20px;background:rgba(15,25,35,.8);color:#fff;}
 .ba-label-after{right:20px;background:var(--gold);color:var(--navy);}
-.ba-slider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:3;cursor:ew-resize;}
-.ba-slider::after{content:'◄ ►';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);padding:6px 10px;border-radius:50px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 2px 12px rgba(0,0,0,.3);}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:#fff;z-index:4;pointer-events:none;transform:translateX(-50%);}
+.ba-handle::before{content:'◄ ►';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);padding:8px 12px;border-radius:50px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 2px 16px rgba(0,0,0,.35);}
 .ba-text .section-title{margin-bottom:20px;}
 .ba-text p{color:var(--gray-600);font-size:15px;line-height:1.8;margin-bottom:28px;}
 .ba-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
@@ -403,11 +403,12 @@ nav.main-nav{display:none;}
 <!-- BEFORE/AFTER -->
 <section class="before-after" id="about">
 <div class="ba-inner">
-<div class="ba-imgs reveal">
-<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Before" style="width:100%;height:100%;object-fit:cover;border-radius:20px;filter:brightness(.7) saturate(.6);" class="ba-before">
-<img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80" alt="After" style="width:100%;height:100%;object-fit:cover;border-radius:20px;position:absolute;inset:0;opacity:0;transition:opacity .8s;" class="ba-after">
+<div class="ba-wrapper" id="baSlider">
+<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Before" class="ba-before-img">
+<img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80" alt="After" class="ba-after-img">
 <div class="ba-label ba-label-before">Before</div>
 <div class="ba-label ba-label-after">After</div>
+<div class="ba-handle" id="baHandle"></div>
 </div>
 <div class="ba-text reveal">
 <div class="section-tag">The Transformation</div>
@@ -613,18 +614,23 @@ const statsObserver = new IntersectionObserver((entries) => {
 const statsBar = document.querySelector('.stats-bar');
 if (statsBar) statsObserver.observe(statsBar);
 
-// Before/after hover reveal
-const baImgs = document.querySelector('.ba-imgs');
-if (baImgs) {
-  baImgs.addEventListener('mouseenter', () => {
-    const after = baImgs.querySelector('.ba-after');
-    if (after) after.style.opacity = '1';
-  });
-  baImgs.addEventListener('mouseleave', () => {
-    const after = baImgs.querySelector('.ba-after');
-    if (after) after.style.opacity = '0';
-  });
-}
+// Before/after drag slider
+(function(){
+  var slider = document.getElementById('baSlider');
+  var handle = document.getElementById('baHandle');
+  if(!slider || !handle) return;
+  var afterImg = slider.querySelector('.ba-after-img');
+  function update(x) {
+    var rect = slider.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    afterImg.style.clipPath = 'inset(0 ' + ((1-pct)*100) + '% 0 0)';
+    handle.style.left = (pct * 100) + '%';
+  }
+  slider.addEventListener('mousemove', function(e){ update(e.clientX); });
+  slider.addEventListener('touchmove', function(e){ update(e.touches[0].clientX); }, {passive:true});
+  // init at 50%
+  update(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+})();
 </script>
 </body>
 </html>
