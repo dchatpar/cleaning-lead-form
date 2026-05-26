@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanClean Pro | Vancouver's Premier Cleaning Service</title>
+    <title>Pristine Clean Vancouver | Professional Cleaning Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -16,13 +16,11 @@
 
         :root {
             --navy: #0F1923;
-            --navy-light: #1a2837;
             --gold: #C9A84C;
-            --gold-glow: rgba(201, 168, 76, 0.4);
-            --white: #ffffff;
-            --gray-light: #F8F9FA;
-            --gray-mid: #e9ecef;
-            --text-muted: #a0aec0;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --text: #1A1A2E;
+            --navy-light: #1a2633;
         }
 
         html {
@@ -31,137 +29,174 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--navy);
-            color: var(--white);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* Header */
+        /* ============ HEADER ============ */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(15, 25, 35, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-            padding: 0 5%;
-            height: 80px;
+            padding: 20px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            opacity: 0;
-            animation: fadeInDown 0.8s ease forwards;
+            transition: all 0.4s ease;
+            background: transparent;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .header.scrolled {
+            background: var(--navy);
+            padding: 15px 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            transform: translateY(0);
         }
 
         .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--gold) 0%, #e8c36a 100%);
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
         }
 
         .logo-icon svg {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             fill: var(--navy);
         }
 
-        .logo-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
         }
 
         .header-phone {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
             color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .header-phone:hover {
-            color: var(--gold);
-        }
-
-        .header-phone svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--gold);
-        }
-
-        .btn {
-            font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, #e8c36a 100%);
+        .header-phone svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-gold {
+            background: var(--gold);
             color: var(--navy);
-            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
         }
 
-        .btn-primary:hover {
+        .btn-gold:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(201, 168, 76, 0.5);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.4);
         }
 
-        .btn-primary:active {
-            transform: scale(0.98);
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
-        /* Hero Section */
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        /* ============ HERO ============ */
         .hero {
             min-height: 100vh;
-            padding: 140px 5% 80px;
+            background: linear-gradient(135deg, rgba(15,25,35,0.85) 0%, rgba(15,25,35,0.7) 100%),
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920') center/cover no-repeat;
             display: flex;
             align-items: center;
-            background: linear-gradient(180deg, var(--navy) 0%, rgba(15, 25, 35, 0.95) 100%);
+            padding: 0 5%;
             position: relative;
             overflow: hidden;
         }
@@ -169,133 +204,578 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(201,168,76,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            opacity: 0.5;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
             opacity: 0;
-            animation: fadeInLeft 1s ease 0.3s forwards;
+            transform: translateY(40px);
+            animation: fadeUp 1s ease forwards 0.3s;
         }
 
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-40px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(201, 168, 76, 0.1);
+            background: rgba(201, 168, 76, 0.15);
             border: 1px solid rgba(201, 168, 76, 0.3);
             padding: 8px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
             color: var(--gold);
-            margin-bottom: 24px;
-        }
-
-        .hero-badge svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 24px;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
-            background: linear-gradient(135deg, var(--gold) 0%, #e8c36a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold);
         }
 
         .hero-subtext {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 500px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            letter-spacing: 2px;
         }
 
-        .hero-features {
+        .hero-buttons {
             display: flex;
+            gap: 15px;
             flex-wrap: wrap;
-            gap: 24px;
+            margin-bottom: 50px;
         }
 
-        .hero-feature {
+        .trust-badges {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: var(--white);
+            font-size: 0.9rem;
         }
 
-        .hero-feature svg {
+        .trust-badge svg {
             width: 20px;
             height: 20px;
             fill: var(--gold);
         }
 
-        /* Form Section */
-        .form-wrapper {
-            background: var(--gray-light);
-            border-radius: 24px;
-            padding: 48px;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
+        /* ============ SECTIONS COMMON ============ */
+        .section {
+            padding: 100px 5%;
         }
 
-        .form-wrapper::before {
-            content: '';
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* ============ SERVICES ============ */
+        .services {
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            border: 2px solid transparent;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--gold) 0%, #d4b05a 100%);
+        }
+
+        .service-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--white);
+            transition: fill 0.3s;
+        }
+
+        .service-card:hover .service-icon svg {
+            fill: var(--navy);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .learn-more {
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .learn-more:hover {
+            gap: 10px;
+        }
+
+        /* ============ BEFORE/AFTER ============ */
+        .before-after {
+            background: var(--navy);
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .before-after .section-title h2 {
+            color: var(--white);
+        }
+
+        .before-after .section-title p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .slider-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .slider-image {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), #e8c36a, var(--gold));
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .form-header {
-            text-align: center;
-            margin-bottom: 32px;
+        .slider-after {
+            clip-path: inset(0 50% 0 0);
         }
 
-        .form-header h2 {
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .slider-handle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .slider-handle::after {
+            content: '⟷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: var(--navy);
-            font-size: 1.75rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
-        .form-header p {
-            color: #64748b;
+        .slider-label {
+            position: absolute;
+            bottom: 20px;
+            padding: 8px 20px;
+            background: rgba(0,0,0,0.7);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .slider-label.before {
+            left: 20px;
+        }
+
+        .slider-label.after {
+            right: 20px;
+        }
+
+        /* ============ WHY CHOOSE US ============ */
+        .why-us {
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 16px;
+            background: var(--light-bg);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+
+        .why-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .why-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--gold);
+        }
+
+        .why-card h3 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ============ STAT STRIP ============ */
+        .stats {
+            background: linear-gradient(135deg, var(--navy) 0%, #162330 100%);
+            padding: 60px 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            background: var(--light-bg);
+            overflow: hidden;
+        }
+
+        .testimonial-carousel {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 20px;
+        }
+
+        .testimonial-inner {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-stars svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+
+        .testimonial-location {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+        }
+
+        /* ============ SERVICE AREAS ============ */
+        .areas {
+            background: var(--white);
+        }
+
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .area-badge {
+            padding: 12px 25px;
+            background: var(--light-bg);
+            border-radius: 50px;
+            font-weight: 500;
+            color: var(--navy);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .area-badge:hover {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+
+        /* ============ CONTACT ============ */
+        .contact {
+            background: var(--light-bg);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold);
+        }
+
+        .contact-item-text h4 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .contact-item-text p {
+            color: #666;
             font-size: 0.95rem;
         }
 
-        .form-grid {
-            display: grid;
-            gap: 20px;
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 30px;
         }
 
         .form-row {
@@ -305,815 +785,807 @@
         }
 
         .form-group {
-            position: relative;
+            margin-bottom: 20px;
             opacity: 0;
-            transform: translateX(30px);
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
         }
 
-        .form-group.animate-in {
-            animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes slideInRight {
-            to { opacity: 1; transform: translateX(0); }
+        .form-group.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .form-group label {
             display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #475569;
+            font-weight: 600;
+            color: var(--navy);
             margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
-        .form-group label .required {
-            color: #ef4444;
-        }
-
-        .form-control {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 14px 18px;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            font-size: 1rem;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            background: var(--white);
-            color: var(--navy);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .form-control:focus {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
         }
 
-        .form-control::placeholder {
-            color: #94a3b8;
-        }
-
-        select.form-control {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-            padding-right: 45px;
-        }
-
-        textarea.form-control {
-            min-height: 100px;
+        .form-group textarea {
             resize: vertical;
+            min-height: 120px;
         }
 
-        input[type="date"].form-control {
-            cursor: pointer;
-        }
-
-        .btn-submit {
+        .submit-btn {
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             font-size: 1.1rem;
-            margin-top: 8px;
         }
 
-        .btn-submit svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--navy);
-            transition: transform 0.3s ease;
-        }
-
-        .btn-submit:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Trust Badges */
-        .trust-section {
-            padding: 60px 5%;
-            background: linear-gradient(180deg, rgba(15, 25, 35, 0.9) 0%, var(--navy) 100%);
-        }
-
-        .trust-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .trust-badge.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .trust-badge-icon {
-            width: 52px;
-            height: 52px;
-            background: rgba(201, 168, 76, 0.1);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .trust-badge-icon svg {
-            width: 26px;
-            height: 26px;
-            fill: var(--gold);
-        }
-
-        .trust-badge-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--white);
-        }
-
-        /* Why Choose Us */
-        .why-section {
-            padding: 100px 5%;
-            background: var(--navy);
-            position: relative;
-        }
-
-        .why-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), transparent);
-        }
-
-        .why-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-
-        .section-header h2 span {
-            color: var(--gold);
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .why-card {
-            background: linear-gradient(135deg, var(--navy-light) 0%, rgba(26, 40, 55, 0.5) 100%);
-            border: 1px solid rgba(201, 168, 76, 0.1);
-            border-radius: 20px;
-            padding: 40px 32px;
-            text-align: center;
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .why-card.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .why-card:hover {
-            border-color: rgba(201, 168, 76, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .why-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(201, 168, 76, 0.2) 0%, rgba(201, 168, 76, 0.05) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover .why-icon {
-            background: linear-gradient(135deg, var(--gold) 0%, #e8c36a 100%);
-            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
-        }
-
-        .why-icon svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--gold);
-            transition: fill 0.3s ease;
-        }
-
-        .why-card:hover .why-icon svg {
-            fill: var(--navy);
-        }
-
-        .why-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 14px;
-            color: var(--white);
-        }
-
-        .why-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Footer */
+        /* ============ FOOTER ============ */
         .footer {
             background: var(--navy);
-            border-top: 1px solid rgba(201, 168, 76, 0.1);
-            padding: 60px 5% 30px;
+            padding: 80px 5% 30px;
         }
 
-        .footer-container {
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
             max-width: 1200px;
             margin: 0 auto;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 50px;
-        }
-
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-top: 20px;
-            max-width: 300px;
-        }
-
-        .footer-column h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--gold);
+        .footer-brand .logo {
             margin-bottom: 20px;
         }
 
-        .footer-column ul {
-            list-style: none;
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
         }
 
-        .footer-column li {
-            margin-bottom: 12px;
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
 
-        .footer-column a {
-            color: var(--text-muted);
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
+            margin-bottom: 12px;
+            transition: color 0.3s;
         }
 
-        .footer-column a:hover {
+        .footer-links a:hover {
             color: var(--gold);
         }
 
-        .footer-contact li {
+        .social-icons {
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            gap: 15px;
         }
 
-        .footer-contact svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--gold);
-            flex-shrink: 0;
-            margin-top: 3px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-bottom p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.05);
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .footer-social a:hover {
+        .social-icon:hover {
             background: var(--gold);
         }
 
-        .footer-social svg {
+        .social-icon svg {
             width: 20px;
             height: 20px;
-            fill: var(--text-muted);
-            transition: fill 0.3s ease;
+            fill: var(--white);
+            transition: fill 0.3s;
         }
 
-        .footer-social a:hover svg {
+        .social-icon:hover svg {
             fill: var(--navy);
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 992px) {
+            .contact-wrapper {
                 grid-template-columns: 1fr;
-                gap: 60px;
             }
 
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-grid {
+            .footer-content {
                 grid-template-columns: 1fr 1fr;
-                gap: 40px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 0 20px;
-            }
-
             .header-phone {
                 display: none;
             }
 
-            .hero {
-                padding: 120px 20px 60px;
+            .hero-content {
+                text-align: center;
             }
 
-            .hero h1 {
-                font-size: 2.2rem;
+            .hero-buttons {
+                justify-content: center;
             }
 
-            .form-wrapper {
-                padding: 32px 24px;
+            .trust-badges {
+                justify-content: center;
+            }
+
+            .slider-wrapper {
+                height: 300px;
+            }
+
+            .testimonial-inner {
+                padding: 30px 20px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .trust-badges {
-                gap: 24px;
-            }
-
-            .trust-badge {
-                flex: 0 0 calc(50% - 12px);
-                justify-content: center;
-            }
-
-            .why-grid {
+            .footer-content {
                 grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
                 text-align: center;
             }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="#" class="logo">
             <div class="logo-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <span class="logo-text">VanClean Pro</span>
-        </div>
+            Pristine Clean
+        </a>
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#why-us">About</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
         <div class="header-right">
-            <a href="tel:+16045551234" class="header-phone">
+            <div class="header-phone">
                 <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                (604) 555-1234
-            </a>
-            <a href="#quote-form" class="btn btn-primary">Get a Quote</a>
+                604-555-0123
+            </div>
+            <a href="#contact" class="btn btn-gold">Get Quote</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Metro Vancouver's #1 Rated Cleaning Service
+            </div>
+            <h1>Vancouver's Most <span>Trusted</span> Cleaning Service</h1>
+            <p class="hero-subtext">Residential • Commercial • Airbnb • Post-Construction</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">
                     <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    Vancouver's Highest Rated Cleaners
+                    5-Star Rated
                 </div>
-                <h1>Get Your <span>Free Cleaning Quote</span> Today</h1>
-                <p class="hero-subtext">Transform your space with Vancouver's most trusted cleaning service. Professional, reliable, and backed by a 100% satisfaction guarantee.</p>
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                        Free Estimates
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Licensed & Insured
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                    2,500+ Homes Served
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+        <div class="section-title">
+            <h2>Our Cleaning Services</h2>
+            <div class="gold-line"></div>
+            <p>Professional cleaning solutions for every need</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-delay="0">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </div>
+                <h3>Residential Cleaning</h3>
+                <p>Complete home cleaning including kitchens, bathrooms, bedrooms, and living areas with eco-friendly products.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+            <div class="service-card" data-delay="100">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                </div>
+                <h3>Commercial Cleaning</h3>
+                <p>Professional office and business cleaning with flexible scheduling to minimize disruption.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+            <div class="service-card" data-delay="200">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                </div>
+                <h3>Airbnb Turnover</h3>
+                <p>Fast turnaround cleaning for short-term rentals. We ensure 5-star guest experiences every time.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+            <div class="service-card" data-delay="300">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                </div>
+                <h3>Post-Construction</h3>
+                <p>Thorough post-renovation cleaning removing all dust, debris, and construction residue.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+            <div class="service-card" data-delay="400">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                </div>
+                <h3>Window Cleaning</h3>
+                <p>Crystal-clear window cleaning for homes and businesses. Interior and exterior services available.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+            <div class="service-card" data-delay="500">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z"/></svg>
+                </div>
+                <h3>Pressure Washing</h3>
+                <p>Professional exterior cleaning for driveways, decks, siding, and more.</p>
+                <a href="#contact" class="learn-more">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE/AFTER -->
+    <section class="before-after">
+        <div class="section-title">
+            <h2>See the Difference</h2>
+            <div class="gold-line"></div>
+            <p>Drag the slider to reveal the transformation</p>
+        </div>
+        <div class="slider-container" id="sliderContainer">
+            <div class="slider-wrapper">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800" alt="Before" class="slider-image slider-before">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800" alt="After" class="slider-image slider-after" id="sliderAfter">
+                <div class="slider-handle" id="sliderHandle">
+                    <span class="slider-label before">Before</span>
+                    <span class="slider-label after">After</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section why-us" id="why-us">
+        <div class="section-title">
+            <h2>Why Choose Pristine Clean?</h2>
+            <div class="gold-line"></div>
+            <p>What sets us apart from the rest</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card" data-delay="0">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Fully Insured & Bonded</h3>
+                <p>Complete peace of mind with full liability coverage</p>
+            </div>
+            <div class="why-card" data-delay="100">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <h3>Flexible Scheduling</h3>
+                <p>Book anytime that works for you, including weekends</p>
+            </div>
+            <div class="why-card" data-delay="200">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>5-Star Rated Team</h3>
+                <p>Consistently rated 5 stars by hundreds of happy clients</p>
+            </div>
+            <div class="why-card" data-delay="300">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+                </div>
+                <h3>Eco-Friendly Products</h3>
+                <p>Safe for your family, pets, and the environment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAT STRIP -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="2500">0</div>
+                <div class="stat-label">Homes Cleaned</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98" data-suffix="%">0</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="8" data-suffix="+">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1" data-prefix="">Same-Day</div>
+                <div class="stat-label">Service Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <div class="gold-line"></div>
+            <p>Trusted by homeowners and businesses across Metro Vancouver</p>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-card">
+                    <div class="testimonial-inner">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"Pristine Clean transformed our Airbnb between guests. They're reliable, thorough, and always leave the place spotless. Our guests consistently rate us 5 stars because of their amazing work!"</p>
+                        <div class="testimonial-author">Sarah Mitchell</div>
+                        <div class="testimonial-location">Kitsilano</div>
                     </div>
-                    <div class="hero-feature">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                        Same-Day Service
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-inner">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"We've used Pristine Clean for our office building for over 3 years now. Their commercial team is professional, punctual, and always delivers exceptional results. Highly recommend!"</p>
+                        <div class="testimonial-author">James Chen</div>
+                        <div class="testimonial-location">Burnaby</div>
                     </div>
-                    <div class="hero-feature">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                        Insured & Bonded
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-inner">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"After our home renovation, we thought we'd never get rid of all the dust. Pristine Clean handled the post-construction cleanup beautifully. Worth every penny!"</p>
+                        <div class="testimonial-author">Amanda Thompson</div>
+                        <div class="testimonial-location">Surrey</div>
                     </div>
                 </div>
             </div>
-            <div class="form-wrapper" id="quote-form">
-                <div class="form-header">
-                    <h2>Request Your Free Quote</h2>
-                    <p>Fill out the form below and get a personalized quote within 24 hours</p>
+            <div class="carousel-dots" id="carouselDots">
+                <div class="carousel-dot active" data-index="0"></div>
+                <div class="carousel-dot" data-index="1"></div>
+                <div class="carousel-dot" data-index="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE AREAS -->
+    <section class="section areas">
+        <div class="section-title">
+            <h2>Areas We Serve</h2>
+            <div class="gold-line"></div>
+            <p>Professional cleaning across Metro Vancouver</p>
+        </div>
+        <div class="areas-grid">
+            <div class="area-badge">Vancouver</div>
+            <div class="area-badge">Burnaby</div>
+            <div class="area-badge">Surrey</div>
+            <div class="area-badge">Coquitlam</div>
+            <div class="area-badge">Richmond</div>
+            <div class="area-badge">North Vancouver</div>
+            <div class="area-badge">West Vancouver</div>
+            <div class="area-badge">New Westminster</div>
+            <div class="area-badge">Delta</div>
+            <div class="area-badge">Langley</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info fade-in">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="contact-item-text">
+                        <h4>Phone</h4>
+                        <p>604-555-0123</p>
+                    </div>
                 </div>
-                <form class="form-grid" id="quoteForm">
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="contact-item-text">
+                        <h4>Email</h4>
+                        <p>hello@pristineclean.ca</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="contact-item-text">
+                        <h4>Address</h4>
+                        <p>123 Main Street, Vancouver, BC V6B 1A1</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <div class="contact-item-text">
+                        <h4>Hours</h4>
+                        <p>Mon-Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form fade-in">
+                <h3>Request a Free Quote</h3>
+                <form id="quoteForm">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullName">Full Name <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Sarah Mitchell" required>
+                        <div class="form-group" data-delay="0">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(604) 555-1234" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="sarah@example.com" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="serviceType">Service Type <span class="required">*</span></label>
-                            <select id="serviceType" name="serviceType" class="form-control" required>
-                                <option value="">Select service...</option>
-                                <option value="residential">Residential Cleaning</option>
-                                <option value="commercial">Commercial Cleaning</option>
-                                <option value="airbnb">Airbnb & Vacation Rental</option>
-                                <option value="post-construction">Post-Construction</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="propertyType">Property Type <span class="required">*</span></label>
-                            <select id="propertyType" name="propertyType" class="form-control" required>
-                                <option value="">Select property...</option>
-                                <option value="house">House</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="office">Office</option>
-                                <option value="retail">Retail Space</option>
-                                <option value="other">Other</option>
-                            </select>
+                        <div class="form-group" data-delay="100">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(604) 555-0123" required>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="bedrooms">Bedrooms / Bathrooms</label>
-                            <input type="text" id="bedrooms" name="bedrooms" class="form-control" placeholder="e.g., 3 bed / 2 bath">
-                        </div>
-                        <div class="form-group">
-                            <label for="preferredDate">Preferred Date</label>
-                            <input type="date" id="preferredDate" name="preferredDate" class="form-control">
-                        </div>
+                    <div class="form-group" data-delay="200">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
                     </div>
-                    <div class="form-group">
-                        <label for="instructions">Special Instructions</label>
-                        <textarea id="instructions" name="instructions" class="form-control" placeholder="Any specific areas to focus on, access details, or special requirements..."></textarea>
+                    <div class="form-group" data-delay="300">
+                        <label for="serviceType">Service Type</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">Select a service...</option>
+                            <option value="residential">Residential Cleaning</option>
+                            <option value="commercial">Commercial Cleaning</option>
+                            <option value="airbnb">Airbnb Turnover</option>
+                            <option value="post-construction">Post-Construction</option>
+                            <option value="window">Window Cleaning</option>
+                            <option value="pressure">Pressure Washing</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        Get My Free Quote
-                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                    </button>
+                    <div class="form-group" data-delay="400">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your cleaning needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold submit-btn">Submit Request</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-section">
-        <div class="trust-container">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <div class="trust-badge-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    </div>
-                    <span class="trust-badge-text">Licensed & Insured</span>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-badge-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </div>
-                    <span class="trust-badge-text">100% Satisfaction</span>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-badge-icon">
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                    </div>
-                    <span class="trust-badge-text">Same-Day Available</span>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-badge-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <span class="trust-badge-text">Vancouver's #1 Rated</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-section" id="why-us">
-        <div class="why-container">
-            <div class="section-header">
-                <h2>Why Choose <span>VanClean Pro</span></h2>
-                <p>Experience the difference of professional cleaning services backed by years of expertise and genuine customer care</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-                    </div>
-                    <h3>Fully Insured & Secured</h3>
-                    <p>Complete peace of mind with our comprehensive insurance coverage. Every service is bonded and backed by our stellar reputation across Greater Vancouver.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </div>
-                    <h3>100% Satisfaction Guaranteed</h3>
-                    <p>Not thrilled with the results? We'll return and re-clean at no additional cost. Your complete satisfaction is our unwavering commitment to you.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                    </div>
-                    <h3>Flexible Scheduling</h3>
-                    <p>Life gets busy — we get it. Book same-day appointments, evening slots, or weekend sessions. We work around your schedule, not the other way around.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <span class="logo-text">VanClean Pro</span>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
-                    <p>Vancouver's premier cleaning service provider. Serving homes and businesses across the Lower Mainland with integrity, professionalism, and exceptional results since 2015.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Residential Cleaning</a></li>
-                        <li><a href="#">Commercial Cleaning</a></li>
-                        <li><a href="#">Airbnb Turnovers</a></li>
-                        <li><a href="#">Post-Construction</a></li>
-                        <li><a href="#">Move In/Out Cleaning</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Service Areas</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact Us</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            123 Main Street<br>Vancouver, BC V6B 1A1
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                            (604) 555-1234
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            hello@vancleanpro.ca
-                        </li>
-                    </ul>
-                </div>
+                    Pristine Clean
+                </a>
+                <p>Vancouver's premier cleaning service. Professional, reliable, and eco-friendly cleaning solutions for homes and businesses across Metro Vancouver.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 VanClean Pro. All rights reserved. Proudly serving Vancouver since 2015.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook">
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#why-us">About Us</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
                     </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25zM12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
                     </a>
-                    <a href="#" aria-label="Twitter">
+                    <a href="#" class="social-icon" aria-label="Twitter">
                         <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
                     </a>
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>© 2024 Pristine Clean Vancouver. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // Form field stagger animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const formGroups = document.querySelectorAll('.form-group');
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
             
-            formGroups.forEach((group, index) => {
-                setTimeout(() => {
-                    group.classList.add('animate-in');
-                }, 400 + (index * 100));
-            });
-
-            // Trust badges fade in animation
-            const trustBadges = document.querySelectorAll('.trust-badge');
-            const formObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        trustBadges.forEach((badge, index) => {
-                            setTimeout(() => {
-                                badge.classList.add('visible');
-                            }, index * 150);
-                        });
-                        formObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            const trustSection = document.querySelector('.trust-section');
-            if (trustSection) {
-                formObserver.observe(trustSection);
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+            
+            lastScroll = currentScroll;
+        });
 
-            // Why Choose Us scroll-triggered reveals
-            const whyCards = document.querySelectorAll('.why-card');
-            const whyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal');
-                        whyObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            whyCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 0.15}s`;
-                whyObserver.observe(card);
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Form submission handling
-            const quoteForm = document.getElementById('quoteForm');
-            quoteForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitBtn = this.querySelector('.btn-submit');
-                const originalText = submitBtn.innerHTML;
-                
-                submitBtn.innerHTML = `
-                    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--navy);animation: spin 1s linear infinite;">
-                        <path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/>
-                    </svg>
-                    Processing...
-                `;
-                submitBtn.disabled = true;
-                submitBtn.style.animation = 'none';
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    submitBtn.innerHTML = `
-                        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--navy);">
-                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        Quote Request Sent!
-                    `;
-                    submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
-                    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
                     setTimeout(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                        submitBtn.style.background = '';
-                        quoteForm.reset();
-                    }, 3000);
-                }, 1500);
-            });
-
-            // Add spin animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes spin {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Set minimum date to today for date picker
-            const dateInput = document.getElementById('preferredDate');
-            if (dateInput) {
-                const today = new Date().toISOString().split('T')[0];
-                dateInput.setAttribute('min', today);
-            }
-
-            // Phone number formatting
-            const phoneInput = document.getElementById('phone');
-            if (phoneInput) {
-                phoneInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length >= 6) {
-                        value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
-                    } else if (value.length >= 3) {
-                        value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    
+                    // Count-up animation for stats
+                    if (entry.target.classList.contains('stat-item')) {
+                        const counter = entry.target.querySelector('.stat-number');
+                        const target = parseInt(counter.dataset.target);
+                        const suffix = counter.dataset.suffix || '+';
+                        const prefix = counter.dataset.prefix || '';
+                        
+                        if (target && target !== 1) {
+                            let current = 0;
+                            const increment = target / 50;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    current = target;
+                                    clearInterval(timer);
+                                }
+                                counter.textContent = prefix + Math.floor(current) + suffix;
+                            }, 30);
+                        }
                     }
-                    e.target.value = value;
-                });
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe why us cards
+        document.querySelectorAll('.why-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Observe fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe form groups
+        document.querySelectorAll('.form-group').forEach(group => {
+            observer.observe(group);
+        });
+
+        // Before/After Slider
+        const sliderContainer = document.getElementById('sliderContainer');
+        const sliderHandle = document.getElementById('sliderHandle');
+        const sliderAfter = document.getElementById('sliderAfter');
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = sliderContainer.getBoundingClientRect();
+            let position = ((x - rect.left) / rect.width) * 100;
+            position = Math.max(5, Math.min(95, position));
+            
+            sliderHandle.style.left = position + '%';
+            sliderAfter.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+        }
+
+        sliderHandle.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                updateSlider(e.clientX);
             }
+        });
+
+        // Touch support
+        sliderHandle.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchend', () => isDragging = false);
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                updateSlider(e.touches[0].clientX);
+            }
+        });
+
+        // Testimonial Carousel
+        const track = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoRotate;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+                resetAutoRotate();
+            });
+        });
+
+        function resetAutoRotate() {
+            clearInterval(autoRotate);
+            autoRotate = setInterval(nextSlide, 5000);
+        }
+
+        autoRotate = setInterval(nextSlide, 5000);
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.submit-btn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'Request Sent!';
+                btn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    btn.textContent = 'Submit Request';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
         });
     </script>
 </body>
