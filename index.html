@@ -268,14 +268,14 @@ nav.main-nav{display:none;}
 <div class="dropdown">
 <a href="#services">Services ▾</a>
 <div class="dropdown-menu">
-<a href="#">Residential Cleaning</a>
-<a href="#">Commercial Cleaning</a>
-<a href="#">Airbnb & Short-Term Rental</a>
-<a href="#">Post-Construction</a>
-<a href="#">Deep Cleaning</a>
-<a href="#">Move-In / Move-Out</a>
-<a href="#">Window Cleaning</a>
-<a href="#">Pressure Washing</a>
+<a href="#residential" onclick="selectService('Residential Cleaning')">Residential Cleaning</a>
+<a href="#commercial" onclick="selectService('Commercial Cleaning')">Commercial Cleaning</a>
+<a href="#airbnb" onclick="selectService('Airbnb & Short-Term Rental')">Airbnb & Short-Term Rental</a>
+<a href="#postconstruction" onclick="selectService('Post-Construction')">Post-Construction</a>
+<a href="#deepclean" onclick="selectService('Deep Cleaning')">Deep Cleaning</a>
+<a href="#moveinout" onclick="selectService('Move-In / Move-Out')">Move-In / Move-Out</a>
+<a href="#windowcleaning" onclick="selectService('Window Cleaning')">Window Cleaning</a>
+<a href="#pressurewashing" onclick="selectService('Pressure Washing')">Pressure Washing</a>
 </div>
 </div>
 <a href="#about">About</a>
@@ -343,7 +343,7 @@ nav.main-nav{display:none;}
 <p class="section-sub">From a quick tidy-up to a full deep clean — we have the right service for every home and business.</p>
 </div>
 <div class="services-grid">
-<div class="service-card reveal">
+<div class="service-card reveal" id="residential">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Residential Cleaning"></div>
 <div class="service-card-body">
 <div class="service-icon">🏠</div>
@@ -352,7 +352,7 @@ nav.main-nav{display:none;}
 <a href="#contact" class="service-link">Get Quote →</a>
 </div>
 </div>
-<div class="service-card reveal">
+<div class="service-card reveal" id="commercial">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Cleaning"></div>
 <div class="service-card-body">
 <div class="service-icon">🏢</div>
@@ -361,7 +361,7 @@ nav.main-nav{display:none;}
 <a href="#contact" class="service-link">Get Quote →</a>
 </div>
 </div>
-<div class="service-card reveal">
+<div class="service-card reveal" id="airbnb">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Airbnb Cleaning"></div>
 <div class="service-card-body">
 <div class="service-icon">🔑</div>
@@ -370,7 +370,7 @@ nav.main-nav{display:none;}
 <a href="#contact" class="service-link">Get Quote →</a>
 </div>
 </div>
-<div class="service-card reveal">
+<div class="service-card reveal" id="postconstruction">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Post-Construction"></div>
 <div class="service-card-body">
 <div class="service-icon">🔨</div>
@@ -379,7 +379,7 @@ nav.main-nav{display:none;}
 <a href="#contact" class="service-link">Get Quote →</a>
 </div>
 </div>
-<div class="service-card reveal">
+<div class="service-card reveal" id="deepclean">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80" alt="Deep Cleaning"></div>
 <div class="service-card-body">
 <div class="service-icon">✨</div>
@@ -388,7 +388,7 @@ nav.main-nav{display:none;}
 <a href="#contact" class="service-link">Get Quote →</a>
 </div>
 </div>
-<div class="service-card reveal">
+<div class="service-card reveal" id="moveinout">
 <div class="service-card-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Move In Out"></div>
 <div class="service-card-body">
 <div class="service-icon">📦</div>
@@ -530,7 +530,7 @@ nav.main-nav{display:none;}
 <input type="tel" placeholder="Phone Number *" required>
 <input type="email" placeholder="Email Address">
 <input type="text" placeholder="Postal Code (e.g. V6B 2K8)">
-<select><option value="">Service Needed</option><option>Residential Cleaning</option><option>Commercial Cleaning</option><option>Airbnb & Short-Term Rental</option><option>Post-Construction</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Window Cleaning</option><option>Pressure Washing</option><option>Other</option></select>
+<select id="service-select"><option value="">Service Needed</option><option>Residential Cleaning</option><option>Commercial Cleaning</option><option>Airbnb &amp; Short-Term Rental</option><option>Post-Construction</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Window Cleaning</option><option>Pressure Washing</option><option>Other</option></select>
 <select><option value="">Preferred Date</option><option>As Soon As Possible</option><option>This Week</option><option>Next Week</option><option>Flexible</option></select>
 <textarea placeholder="Any special instructions or details?"></textarea>
 <button type="submit" class="form-submit">Get My Free Quote →</button>
@@ -615,7 +615,31 @@ const statsBar = document.querySelector('.stats-bar');
 if (statsBar) statsObserver.observe(statsBar);
 
 // Before/after drag slider
-(function(){
+// Select service from dropdown → pre-fill form + scroll to contact
+function selectService(name) {
+  var sel = document.getElementById('service-select');
+  if (sel) {
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === name || sel.options[i].text === name) {
+        sel.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  document.querySelector('.mobile-menu').classList.remove('open');
+  var contact = document.getElementById('contact');
+  if (contact) contact.scrollIntoView({behavior: 'smooth'});
+}
+// Close mobile menu on link click
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelector('.mobile-menu').classList.remove('open');
+    });
+  });
+});
+
+(function() {
   var slider = document.getElementById('baSlider');
   var handle = document.getElementById('baHandle');
   if(!slider || !handle) return;
