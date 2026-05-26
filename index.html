@@ -267,6 +267,24 @@
             justify-content: center;
         }
 
+        .mobile-quote-btn {
+            background: var(--gold) !important;
+            color: var(--navy) !important;
+            padding: 14px 32px !important;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .mobile-quote-btn:hover {
+            background: var(--gold-light) !important;
+            transform: scale(1.05);
+        }
+
         /* ========== HERO ========== */
         .hero {
             min-height: 100vh;
@@ -1099,13 +1117,8 @@
                 display: flex;
             }
 
-            .header-cta .header-phone {
+            .header-cta {
                 display: none;
-            }
-
-            .header-cta .btn {
-                padding: 10px 20px;
-                font-size: 14px;
             }
 
             .trust-badges {
@@ -1583,6 +1596,7 @@
         <a href="#areas">Areas</a>
         <a href="#contact">Contact</a>
         <a href="tel:604-714-2000" style="color: var(--gold);">604-714-2000</a>
+        <a href="#contact" class="mobile-quote-btn">Get Free Quote</a>
     </div>
 
     <!-- HERO -->
@@ -1718,11 +1732,11 @@
                 <div class="ba-slider" id="baSlider">
                     <div class="ba-images">
                         <div class="ba-image ba-before" id="baBefore">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Before cleaning">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Before cleaning">
                             <span class="ba-label before">Before</span>
                         </div>
                         <div class="ba-image ba-after" id="baAfter">
-                            <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80" alt="After cleaning">
+                            <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80" alt="After cleaning">
                             <span class="ba-label after">After</span>
                         </div>
                         <div class="ba-handle" id="baHandle"></div>
