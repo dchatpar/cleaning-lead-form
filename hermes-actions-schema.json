@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hermes Agent WhatsApp Bridge",
+    "description": "Send WhatsApp messages and execute tasks through an AI agent. Use this to send messages to contacts, request web research, generate documents, or execute automation tasks.",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://da94-66-183-198-187.ngrok-free.app"
+    }
+  ],
+  "paths": {
+    "/send": {
+      "post": {
+        "operationId": "sendWhatsAppMessage",
+        "summary": "Send a WhatsApp message",
+        "description": "Send a WhatsApp message to a specific phone number. Include the task you want accomplished in the message body - the AI agent will execute it.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Recipient's WhatsApp phone number in international format (e.g., +17771234567)",
+                    "example": "+17771234567"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "The message to send. Can include a task request - e.g., 'Build me a PDF proposal for a dental clinic, save it, and send me the link'",
+                    "example": "Research Canadian government grants for small businesses and send me a summary"
+                  }
+                },
+                "required": ["chatId", "message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {"type": "boolean"},
+                    "messageId": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Check if the agent is online",
+        "responses": {
+          "200": {
+            "description": "Agent is connected and ready",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string", "example": "connected"},
+                    "queueLength": {"type": "integer"},
+                    "uptime": {"type": "number"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/send-media": {
+      "post": {
+        "operationId": "sendMedia",
+        "summary": "Send an image, video, or document via WhatsApp",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Recipient's WhatsApp phone number in international format",
+                    "example": "+17771234567"
+                  },
+                  "filePath": {
+                    "type": "string",
+                    "description": "Local file path to the media file on the server"
+                  },
+                  "mediaType": {
+                    "type": "string",
+                    "enum": ["image", "video", "document", "audio"],
+                    "description": "Type of media being sent"
+                  },
+                  "caption": {
+                    "type": "string",
+                    "description": "Optional caption or message to accompany the media"
+                  }
+                },
+                "required": ["chatId", "filePath", "mediaType"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Media sent successfully"
+          }
+        }
+      }
+    }
+  }
+}
